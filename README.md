@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-My Stack gives you the possibility to share your technical skills in an easy manner with the world.
+My Stack gives you the possibility to share your technical skills with the world in an easy manner.
 
 ## Getting Started
 
