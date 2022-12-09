@@ -5,7 +5,7 @@ export type SkillDocument = HydratedDocument<Skill>;
 
 @Schema()
 export class Skill {
-  @Prop()
+  @Prop({ required: true })
   title: string;
 }
 
