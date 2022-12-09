@@ -1,4 +1,4 @@
-# My Stack
+# 🤙🏻 My Stack
 
 My Stack gives you the possibility to share your technical skills in an easy manner with the world.
 
