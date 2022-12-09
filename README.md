@@ -1,9 +1,20 @@
 # 🤙🏻 My Stack
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-My Stack gives you the possibility to share your technical skills with the world in an easy manner.
+**My Stack** gives you the possibility to share your technical skills with the world in an easy manner.
+
+## Prerequisits
+
+To be able to run **My Stack** on your local machine please make sure that you have installed the following software:
+
+- _Docker 20.10.17_
+- _node v16.16.0_
+- _npm 8.19.2_
 
 ## Getting Started
 
