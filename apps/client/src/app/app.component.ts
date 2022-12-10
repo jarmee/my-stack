@@ -1,5 +1,6 @@
-import { NxWelcomeComponent } from "./nx-welcome.component";
 import { Component } from "@angular/core";
+
+import { NxWelcomeComponent } from "./nx-welcome.component";
 
 @Component({
   standalone: true,

@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "import", "unused-imports"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -18,7 +18,29 @@
               }
             ]
           }
-        ]
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              ["index", "sibling", "parent", "object"]
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "pathGroups": [
+              {
+                "pattern": "+(@assecosolutions)/**",
+                "group": "external",
+                "position": "after"
+              }
+            ],
+            "newlines-between": "always",
+            "alphabetize": { "order": "asc", "caseInsensitive": true }
+          }
+        ],
+        "unused-imports/no-unused-imports": "error"
       }
     },
     {

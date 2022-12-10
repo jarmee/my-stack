@@ -2,7 +2,7 @@
   <img src="./docs/assets/logo.png" width="128" height="128" alt="my-stack-logo">
   <br>
 </p>
-<h1 align="center" style="margin-bottom: 0px; padding-bottom: 0px;">My Stack - Share Your Technical Skills With the World</h1>
+<h1 align="center" style="margin-bottom: 0px; padding-bottom: 0px;">Stackdeck - Share Your Technical Skills With the World</h1>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 

@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
-import { Skill, SkillsModule } from "./api/skills";
 import { TypeOrmModule } from "@nestjs/typeorm";
+
+import { Skill, SkillsModule } from "./api/skills";
 
 @Module({
   imports: [

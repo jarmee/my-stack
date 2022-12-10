@@ -1,5 +1,26 @@
 {
   "explorer.excludeGitIgnore": true,
+  "search.useIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
+  "files.exclude": {
+    ".vscode": true,
+    "**/.jest_cache": true,
+    "**/coverage": true,
+    "**/dist": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).spec.ts",
+    "package.json": ".editorconfig,.prettierignore,.eslintrc.json,.eslintignore,.nvmrc,.lintstagedrc, .prettierrc, package-lock.json, yarn.lock, pnpm-lock.yaml",
+    "*.component.ts": "$(capture).component.html, $(capture).component.spec.ts, $(capture).component.scss, $(capture).component.css",
+    "Dockerfile": ".dockerignore"
+  },
+  "explorer.fileNesting.expand": false,
+  "gitlens.blame.ignoreWhitespace": false,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "sqltools.connections": [
     {
       "previewLimit": 50,
