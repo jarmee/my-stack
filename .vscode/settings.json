@@ -1,3 +1,16 @@
 {
-  "explorer.excludeGitIgnore": true
+  "explorer.excludeGitIgnore": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Main",
+      "group": "Local",
+      "database": "mystack",
+      "username": "root",
+      "password": "secret"
+    }
+  ]
 }

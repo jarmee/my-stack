@@ -1,9 +1,9 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateSkillDto } from './dto';
-import { Skill, Skills } from './schemas';
-import { SkillsService } from './skills.service';
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { CreateSkillDto } from "./dto";
+import { Skill } from "./skill.entity";
+import { SkillsService } from "./skills.service";
 
-@Controller('skills')
+@Controller("skills")
 export class SkillsController {
   constructor(private _service: SkillsService) {}
 
@@ -13,12 +13,12 @@ export class SkillsController {
   }
 
   @Get()
-  getAll(): Promise<Skills> {
+  getAll(): Promise<Array<Skill>> {
     return this._service.getAll();
   }
 
-  @Get(':id')
-  getById(@Param('id') id: string): Promise<Skill> {
+  @Get(":id")
+  getById(@Param("id") id: number): Promise<Skill> {
     return this._service.getById(id);
   }
 }
