@@ -1,21 +1,28 @@
-import { Injectable } from '@nestjs/common';
-import { SkillsRepository } from './skills.repository';
-import { Skill, Skills } from './schemas/skills.schemata';
-import { CreateSkillDto } from './dto';
+import { Injectable } from "@nestjs/common";
+import { CreateSkillDto } from "./dto";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { Skill } from "./skill.entity";
 
 @Injectable()
 export class SkillsService {
-  constructor(private _repository: SkillsRepository) {}
+  constructor(
+    @InjectRepository(Skill)
+    private _repository: Repository<Skill>
+  ) {}
 
   create(createSkill: CreateSkillDto): Promise<Skill> {
-    return this._repository.create(createSkill);
+    const skill = new Skill();
+    skill.title = createSkill.title;
+
+    return this._repository.save(skill);
   }
 
-  getAll(): Promise<Skills> {
-    return this._repository.getAll();
+  getAll(): Promise<Array<Skill>> {
+    return this._repository.find();
   }
 
-  getById(id: string): Promise<Skill> {
-    return this._repository.getById(id);
+  getById(id: number): Promise<Skill> {
+    return this._repository.findOneBy({ id: id });
   }
 }
