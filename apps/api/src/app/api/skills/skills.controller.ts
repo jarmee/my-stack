@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 
-import { CreateSkillDto } from "./dto";
+import { CreateSkillDto } from "./create-skill.dto";
 import { Skill } from "./skill.entity";
 import { SkillsService } from "./skills.service";
 
