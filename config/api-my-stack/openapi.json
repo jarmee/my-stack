@@ -1,0 +1,128 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/skills": {
+      "post": {
+        "operationId": "createSkill",
+        "summary": "",
+        "description": "creates a skill",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkillDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Skill"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["skills"]
+      },
+      "get": {
+        "operationId": "getAllSkills",
+        "summary": "",
+        "description": "returns all skills",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Skill"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["skills"]
+      }
+    },
+    "/api/skills/{id}": {
+      "get": {
+        "operationId": "getSkillById",
+        "summary": "",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Skill"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["skills"]
+      }
+    }
+  },
+  "info": {
+    "title": "My Stack",
+    "description": "My Stack - Share Your Technical Skills With the World",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "skills",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateSkillDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title"
+          }
+        },
+        "required": ["title"]
+      },
+      "Skill": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          }
+        },
+        "required": ["id", "title"]
+      }
+    }
+  }
+}

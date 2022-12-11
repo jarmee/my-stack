@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "api-my-stack:update": "node ./scripts/workspace.mjs run update:open-api-config http://localhost:3333/api-json ./config/api-my-stack/openapi.json",
+    "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack"
   },
   "private": true,
   "devDependencies": {
@@ -61,6 +63,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",
     "@nestjs/typeorm": "^9.0.1",
+    "@openapitools/openapi-generator-cli": "^2.5.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "pg": "^8.8.0",
