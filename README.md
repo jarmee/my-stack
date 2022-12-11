@@ -12,7 +12,7 @@
 
 ## Documentation 📚
 
-My Stack gives you the possibility to share your technical skills with the world in an easy manner.
+**My Stack** gives you the possibility to share your technical skills with the world in an easy manner.
 
 ### Development 💻
 
