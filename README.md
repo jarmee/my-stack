@@ -32,7 +32,7 @@ To be able to run **My Stack** on your local machine please make sure that you h
 ##### Starting the API
 
 3. After all dependencies were installed execute `docker-compose up`. This will startup the database (PostgreSQL).
-4. Now you are ready to start the api. Run `nx serve api` and you are good to go. To see if everything is up and running open your browser and navigate to `http://localhost:3333/skills` or run `curl http://localhost:3333/skills`. You should see the following output `[]`;
+4. Now you are ready to start the api. Run `nx serve api` and you are good to go. To see if everything is up and running open your browser and navigate to `http://localhost:3333/api/stacks` or run `curl http://localhost:3333/api/stacks`. You should see the following output `[]`;
 
 ##### Starting the Client
 

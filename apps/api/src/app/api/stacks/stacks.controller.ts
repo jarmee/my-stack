@@ -27,8 +27,8 @@ export class StacksController {
     status: 200,
     type: Stack,
   })
-  create(@Body() createSkill: CreateStackDto): Promise<Stack> {
-    return this._service.create(createSkill);
+  create(@Body() createStack: CreateStackDto): Promise<Stack> {
+    return this._service.create(createStack);
   }
 
   @Get()
