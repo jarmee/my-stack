@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class CreateSkillDto {
+export class CreateStackDto {
   @ApiProperty({
     description: "Title",
     type: String,

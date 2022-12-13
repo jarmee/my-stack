@@ -1,19 +1,15 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
-export class Skill {
+export class UpdateStackDto {
   @ApiProperty({
     description: "Id",
     type: Number,
   })
-  @PrimaryGeneratedColumn()
-  id: number;
+  readonly id: number;
 
   @ApiProperty({
     description: "Title",
     type: String,
   })
-  @Column()
-  title: string;
+  readonly title: string;
 }

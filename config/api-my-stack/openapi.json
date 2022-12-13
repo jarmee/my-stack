@@ -1,18 +1,18 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/api/skills": {
+    "/api/stacks": {
       "post": {
-        "operationId": "createSkill",
+        "operationId": "createStack",
         "summary": "",
-        "description": "creates a skill",
+        "description": "creates a stack",
         "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSkillDto"
+                "$ref": "#/components/schemas/CreateStackDto"
               }
             }
           }
@@ -23,18 +23,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Skill"
+                  "$ref": "#/components/schemas/Stack"
                 }
               }
             }
           }
         },
-        "tags": ["skills"]
+        "tags": ["stacks"]
       },
       "get": {
-        "operationId": "getAllSkills",
+        "operationId": "getAllStacks",
         "summary": "",
-        "description": "returns all skills",
+        "description": "returns all stacks",
         "parameters": [],
         "responses": {
           "200": {
@@ -44,19 +44,19 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Skill"
+                    "$ref": "#/components/schemas/Stack"
                   }
                 }
               }
             }
           }
         },
-        "tags": ["skills"]
+        "tags": ["stacks"]
       }
     },
-    "/api/skills/{id}": {
+    "/api/stacks/{id}": {
       "get": {
-        "operationId": "getSkillById",
+        "operationId": "getStackById",
         "summary": "",
         "parameters": [
           {
@@ -74,13 +74,251 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Skill"
+                  "$ref": "#/components/schemas/Stack"
                 }
               }
             }
           }
         },
-        "tags": ["skills"]
+        "tags": ["stacks"]
+      },
+      "put": {
+        "operationId": "updateStack",
+        "summary": "",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStackDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stack"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["stacks"]
+      },
+      "delete": {
+        "operationId": "deleteStack",
+        "summary": "",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": ["stacks"]
+      }
+    },
+    "/api/stacks/{stackId}/technologies": {
+      "post": {
+        "operationId": "createTechnologyForStack",
+        "summary": "",
+        "description": "creates a technology for a specific stack",
+        "parameters": [
+          {
+            "name": "stackId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStackTechnologyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTechnology"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["stacks"]
+      },
+      "get": {
+        "operationId": "getAllTechnologiesOfStack",
+        "summary": "",
+        "description": "returns all technologies of a specific stack",
+        "parameters": [
+          {
+            "name": "stackId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StackTechnology"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["stacks"]
+      }
+    },
+    "/api/stacks/{stackId}/technologies/{id}": {
+      "get": {
+        "operationId": "getTechnologyOfStackById",
+        "summary": "",
+        "parameters": [
+          {
+            "name": "stackId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTechnology"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["stacks"]
+      },
+      "put": {
+        "operationId": "updateTechnologyOfStackById",
+        "summary": "",
+        "parameters": [
+          {
+            "name": "stackId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStackTechnologyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTechnology"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["stacks"]
+      },
+      "delete": {
+        "operationId": "deleteStack",
+        "summary": "",
+        "parameters": [
+          {
+            "name": "stackId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "tags": ["stacks"]
       }
     }
   },
@@ -92,14 +330,14 @@
   },
   "tags": [
     {
-      "name": "skills",
+      "name": "stacks",
       "description": ""
     }
   ],
   "servers": [],
   "components": {
     "schemas": {
-      "CreateSkillDto": {
+      "CreateStackDto": {
         "type": "object",
         "properties": {
           "title": {
@@ -109,7 +347,7 @@
         },
         "required": ["title"]
       },
-      "Skill": {
+      "Stack": {
         "type": "object",
         "properties": {
           "id": {
@@ -122,6 +360,54 @@
           }
         },
         "required": ["id", "title"]
+      },
+      "UpdateStackDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          }
+        },
+        "required": ["id", "title"]
+      },
+      "CreateStackTechnologyDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title"
+          }
+        },
+        "required": ["title"]
+      },
+      "StackTechnology": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          }
+        },
+        "required": ["id", "title"]
+      },
+      "UpdateStackTechnologyDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title"
+          }
+        },
+        "required": ["title"]
       }
     }
   }
