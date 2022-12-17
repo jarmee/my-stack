@@ -84,7 +84,7 @@ export class StacksTechnologiesController {
 
   @Delete(":id")
   @ApiOperation({
-    operationId: "deleteStack",
+    operationId: "deleteTechnologyOfStack",
   })
   @ApiResponse({
     status: 204,
