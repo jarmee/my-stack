@@ -1,1 +1,1 @@
-export * from "./lib/shared-api-my-stack.module";
+export * from "./lib";
