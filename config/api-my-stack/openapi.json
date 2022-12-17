@@ -27,6 +27,16 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stack"
+                }
+              }
+            }
           }
         },
         "tags": ["stacks"]
@@ -58,6 +68,7 @@
       "get": {
         "operationId": "getStackById",
         "summary": "",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -85,6 +96,7 @@
       "put": {
         "operationId": "updateStack",
         "summary": "",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -122,6 +134,7 @@
       "delete": {
         "operationId": "deleteStack",
         "summary": "",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -175,6 +188,16 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTechnology"
+                }
+              }
+            }
           }
         },
         "tags": ["stacks"]
@@ -215,6 +238,7 @@
       "get": {
         "operationId": "getTechnologyOfStackById",
         "summary": "",
+        "description": "",
         "parameters": [
           {
             "name": "stackId",
@@ -250,6 +274,7 @@
       "put": {
         "operationId": "updateTechnologyOfStackById",
         "summary": "",
+        "description": "",
         "parameters": [
           {
             "name": "stackId",
@@ -293,8 +318,9 @@
         "tags": ["stacks"]
       },
       "delete": {
-        "operationId": "deleteStack",
+        "operationId": "deleteTechnologyOfStack",
         "summary": "",
+        "description": "",
         "parameters": [
           {
             "name": "stackId",
@@ -351,26 +377,43 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "description": "Id"
+            "type": "number"
           },
           "title": {
-            "type": "string",
-            "description": "Title"
+            "type": "string"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StackTechnology"
+            }
           }
         },
-        "required": ["id", "title"]
+        "required": ["id", "title", "technologies"]
+      },
+      "StackTechnology": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "stack": {
+            "$ref": "#/components/schemas/Stack"
+          }
+        },
+        "required": ["id", "title", "stack"]
       },
       "UpdateStackDto": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "description": "Id"
+            "type": "number"
           },
           "title": {
-            "type": "string",
-            "description": "Title"
+            "type": "string"
           }
         },
         "required": ["id", "title"]
@@ -379,32 +422,16 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string",
-            "description": "Title"
+            "type": "string"
           }
         },
         "required": ["title"]
-      },
-      "StackTechnology": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "description": "Id"
-          },
-          "title": {
-            "type": "string",
-            "description": "Title"
-          }
-        },
-        "required": ["id", "title"]
       },
       "UpdateStackTechnologyDto": {
         "type": "object",
         "properties": {
           "title": {
-            "type": "string",
-            "description": "Title"
+            "type": "string"
           }
         },
         "required": ["title"]
