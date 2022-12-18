@@ -20,7 +20,11 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
+          cache: 'npm'
           node-version-file: '.nvmrc'
+
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Run NX Quality Targets
         uses: mansagroup/nrwl-nx-action@v3
