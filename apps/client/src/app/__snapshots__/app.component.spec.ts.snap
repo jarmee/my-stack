@@ -10,46 +10,51 @@ exports[`AppComponent should match snapshot 1`] = `
       class="mat-toolbar mat-primary"
       color="primary"
     >
-      <button
-        aria-label="Open Navigation"
-        class="mdc-icon-button mat-mdc-icon-button"
-        data-test-id="navigtationButton"
-        mat-icon-button=""
+      <div
+        class="container mx-auto flex items-center"
       >
-        <span
-          class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
-        />
-        <mat-icon
-          aria-hidden="true"
-          class="mat-icon notranslate"
-          role="img"
+        <button
+          aria-label="Open Navigation"
+          class="mdc-icon-button mat-mdc-icon-button"
+          data-test-id="navigtationButton"
+          mat-icon-button=""
         >
-          menu
-        </mat-icon>
+          <span
+            class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+          />
+          <mat-icon
+            aria-hidden="true"
+            class="mat-icon notranslate"
+            role="img"
+          >
+            menu
+          </mat-icon>
+          <span
+            class="mat-mdc-focus-indicator"
+          />
+          <span
+            class="mat-ripple mat-mdc-button-ripple"
+            matripple=""
+          />
+          <span
+            class="mat-mdc-button-touch-target"
+          />
+        </button>
         <span
-          class="mat-mdc-focus-indicator"
-        />
-        <span
-          class="mat-ripple mat-mdc-button-ripple"
-          matripple=""
-        />
-        <span
-          class="mat-mdc-button-touch-target"
-        />
-      </button>
-      <span
-        class="mr-4"
-      >
-      </span>
+          class="mr-4"
+        >
+        </span>
+      </div>
     </mat-toolbar>
     <main>
       <mat-drawer-container
         class="mat-drawer-container"
       >
         <mat-drawer
+          autofocus="false"
           class="mat-drawer ng-trigger ng-trigger-transform"
           data-test-id="sidebar"
-          mode="side"
+          mode="over"
           tabindex="-1"
         >
           <div
@@ -58,7 +63,7 @@ exports[`AppComponent should match snapshot 1`] = `
           />
         </mat-drawer>
         <mat-drawer-content
-          class="mat-drawer-content"
+          class="mat-drawer-content container mx-auto pt-3"
         >
           <router-outlet />
         </mat-drawer-content>
