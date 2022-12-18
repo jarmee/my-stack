@@ -5,9 +5,7 @@
 <h1 align="center" style="margin-bottom: 0px; padding-bottom: 0px;">My Stack - Share Your Technical Skills With the World</h1>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Documentation 📚
@@ -53,6 +51,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center"><a href="https://github.com/jarmee"><img src="https://avatars.githubusercontent.com/u/974638?v=4?s=100" width="100px;" alt="jarmee"/><br /><sub><b>jarmee</b></sub></a><br /><a href="https://github.com/jarmee/my-stack/commits?author=jarmee" title="Code">💻</a> <a href="https://github.com/jarmee/my-stack/commits?author=jarmee" title="Tests">⚠️</a></td>
+      <td align="center"><a href="https://github.com/florianehmke"><img src="https://avatars.githubusercontent.com/u/39598674?v=4?s=100" width="100px;" alt="Florian Ehmke"/><br /><sub><b>Florian Ehmke</b></sub></a><br /><a href="https://github.com/jarmee/my-stack/commits?author=florianehmke" title="Code">💻</a> <a href="https://github.com/jarmee/my-stack/commits?author=florianehmke" title="Tests">⚠️</a> <a href="#infra-florianehmke" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     </tr>
   </tbody>
 </table>
