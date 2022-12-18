@@ -1,18 +1,22 @@
 FROM node:lts-alpine
 
-COPY ./dist/apps/api .
-
 ENV PORT=3333
 EXPOSE ${PORT}
-RUN npm install --production
 
-# dependencies that nestjs needs
-RUN npm install \
+# Copy _only_ the package.json to improve caching.
+COPY ./dist/apps/api/package.json ./
+
+RUN npm install --production && npm install \
+    # --- additional packages
     reflect-metadata \
     tslib \
     rxjs \
     @nestjs/platform-express \
     typeorm \
-    pg
+    pg \
+    # --- eof additional packages
+    && npm cache clean --force
+
+COPY ./dist/apps/api .
 
 CMD node ./main.js
