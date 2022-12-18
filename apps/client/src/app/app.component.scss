@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+
+  mat-drawer-container {
+    height: 100vh;
+
+    mat-drawer {
+      width: 248px;
+    }
+  }
+}
