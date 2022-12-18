@@ -5,6 +5,7 @@ on:
     branches:
       - "main"
       - "develop"
+      - "feature/28-create-deployment-pipelines" # FIXME
   pull_request:
 
 jobs:
@@ -16,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run NX Targets
+      - name: Run NX Quality Targets
         uses: mansagroup/nrwl-nx-action@v3
         with:
           targets: lint,test,build
