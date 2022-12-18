@@ -1,27 +1,26 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AppComponent } from "./app.component";
+import { StacksComponent } from "./stacks.component";
 
-describe("AppComponent", () => {
-  let fixture: ComponentFixture<AppComponent>;
-  let component: AppComponent;
+describe("StacksComponent", () => {
+  let component: StacksComponent;
+  let fixture: ComponentFixture<StacksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [StacksComponent],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(StacksComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it("should match snapshot", () => {
+  it("should match the snapshot", () => {
     expect(fixture).toMatchSnapshot();
   });
 });
