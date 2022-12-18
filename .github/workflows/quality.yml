@@ -22,6 +22,15 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
 
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        id: cache
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: 'node_modules'
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install Dependencies
         run: npm ci
 
