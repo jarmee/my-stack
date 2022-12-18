@@ -44,7 +44,7 @@ jobs:
       - name: Build
         uses: mansagroup/nrwl-nx-action@v3
         with:
-          projects: ${{ env.APP_NAME }}
+          projects: api
           targets: build
 
       - name: Log in to the Container Registry
@@ -102,7 +102,7 @@ jobs:
       - name: Build
         uses: mansagroup/nrwl-nx-action@v3
         with:
-          projects: ${{ env.APP_NAME }}
+          projects: client
           targets: build
 
       - name: Log in to the Container Registry
