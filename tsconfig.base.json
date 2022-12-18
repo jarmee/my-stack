@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@my-stack/feature-stacks": ["libs/my-stack/feature-stacks/src/index.ts"],
       "@my-stack/shared/api-my-stack": ["libs/shared/api-my-stack/src/index.ts"]
     }
   },

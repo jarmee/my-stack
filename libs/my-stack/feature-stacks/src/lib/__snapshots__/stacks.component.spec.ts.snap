@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StacksComponent should match the snapshot 1`] = `
+<my-stack-stacks
+  __ngContext__={[Function Number]}
+>
+  <p>
+    stacks works!
+  </p>
+</my-stack-stacks>
+`;
