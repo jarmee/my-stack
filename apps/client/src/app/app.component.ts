@@ -1,13 +1,14 @@
 import { Component } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { LayoutComponent } from "@my-stack/shared/component-layout";
 
 @Component({
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, LayoutComponent],
   selector: "mystack-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "client";
+  title = "My Stack";
 }

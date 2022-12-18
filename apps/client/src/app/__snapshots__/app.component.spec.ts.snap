@@ -5,6 +5,65 @@ exports[`AppComponent should match snapshot 1`] = `
   __ngContext__={[Function Number]}
   title={[Function String]}
 >
-  <router-outlet />
+  <my-stack-layout>
+    <mat-toolbar
+      class="mat-toolbar mat-primary"
+      color="primary"
+    >
+      <button
+        aria-label="Open Navigation"
+        class="mdc-icon-button mat-mdc-icon-button"
+        data-test-id="navigtationButton"
+        mat-icon-button=""
+      >
+        <span
+          class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+        />
+        <mat-icon
+          aria-hidden="true"
+          class="mat-icon notranslate"
+          role="img"
+        >
+          menu
+        </mat-icon>
+        <span
+          class="mat-mdc-focus-indicator"
+        />
+        <span
+          class="mat-ripple mat-mdc-button-ripple"
+          matripple=""
+        />
+        <span
+          class="mat-mdc-button-touch-target"
+        />
+      </button>
+      <span
+        class="mr-4"
+      >
+      </span>
+    </mat-toolbar>
+    <main>
+      <mat-drawer-container
+        class="mat-drawer-container"
+      >
+        <mat-drawer
+          class="mat-drawer ng-trigger ng-trigger-transform"
+          data-test-id="sidebar"
+          mode="side"
+          tabindex="-1"
+        >
+          <div
+            cdkscrollable=""
+            class="mat-drawer-inner-container"
+          />
+        </mat-drawer>
+        <mat-drawer-content
+          class="mat-drawer-content"
+        >
+          <router-outlet />
+        </mat-drawer-content>
+      </mat-drawer-container>
+    </main>
+  </my-stack-layout>
 </mystack-root>
 `;

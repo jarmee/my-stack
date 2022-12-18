@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponent should match snapshot 1`] = `
+<my-stack-layout
+  __ngContext__={[Function Number]}
+  title=""
+  toggleSidebarNavigation="false"
+>
+  <mat-toolbar
+    class="mat-toolbar mat-primary mat-toolbar-single-row"
+    color="primary"
+  >
+    <button
+      aria-label="Open Navigation"
+      class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
+      data-test-id="navigtationButton"
+      mat-icon-button=""
+    >
+      <span
+        class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+      />
+      <mat-icon
+        aria-hidden="true"
+        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+        data-mat-icon-type="font"
+        role="img"
+      >
+        menu
+      </mat-icon>
+      <span
+        class="mat-mdc-focus-indicator"
+      />
+      <span
+        class="mat-ripple mat-mdc-button-ripple"
+        matripple=""
+      />
+      <span
+        class="mat-mdc-button-touch-target"
+      />
+    </button>
+    <span
+      class="mr-4"
+    >
+    </span>
+  </mat-toolbar><main>
+    <mat-drawer-container
+      class="mat-drawer-container"
+    >
+      <div
+        class="mat-drawer-backdrop"
+      />
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-drawer
+        class="mat-drawer ng-trigger ng-trigger-transform mat-drawer-side"
+        data-test-id="sidebar"
+        mode="side"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
+      >
+        <div
+          cdkscrollable=""
+          class="mat-drawer-inner-container"
+        />
+      </mat-drawer>
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-drawer-content
+        class="mat-drawer-content"
+      />
+    </mat-drawer-container>
+  </main>
+</my-stack-layout>
+`;

@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs';
-import glob from 'glob';
-import { cwd } from 'process';
+import { readFileSync, writeFileSync } from "fs";
+import glob from "glob";
+import { cwd } from "process";
 
 const ALL_FILES_GLOB = (fileName) => `**/${fileName}`;
 
@@ -13,7 +13,7 @@ function __getAllFiles(fileName, ignore) {
 function __getFileContents() {
   return (fileName) => {
     return readFileSync(`${cwd()}/${fileName}`, {
-      encoding: 'utf-8',
+      encoding: "utf-8",
     });
   };
 }
