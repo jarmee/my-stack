@@ -1,50 +1,58 @@
 function __log(text, depth) {
-  console.log('    '.repeat(depth), text);
+  console.log("    ".repeat(depth), text);
 }
 
 function __Pipelines() {
   this.pipelines = new Map();
 
   this.register = function (name, pipeline) {
-    if (!name) throw new Error('name is required');
+    if (!name) throw new Error("name is required");
     this.pipelines.set(name, pipeline);
   };
 
   this.list = function () {
-    console.log('');
-    console.log('🥳 Available pipelines:');
-    this.pipelines.forEach((_, key) => console.log('   - ', key));
+    console.log("");
+    console.log("🥳 Available pipelines:");
+    this.pipelines.forEach((_, key) => console.log("   - ", key));
   };
 
   this.runPipeline = function (pipelineName) {
     if (this.pipelines.has(pipelineName)) {
       try {
-        console.log('');
+        console.log("");
         this.pipelines.get(pipelineName)();
       } catch (error) {
-        console.error('💀 Pipeline failed:');
+        console.error("💀 Pipeline failed:");
         console.error(error);
       }
     } else {
-      console.error('');
-      console.error(`🥶 Unknown pipeline: "${pipelineName ?? '<none>'}". Possible pipelines are:`);
-      this.pipelines.forEach((_, key) => console.error('   - ', key));
+      console.error("");
+      console.error(
+        `🥶 Unknown pipeline: "${
+          pipelineName ?? "<none>"
+        }". Possible pipelines are:`
+      );
+      this.pipelines.forEach((_, key) => console.error("   - ", key));
     }
   };
 
   this.run = function (args) {
     const pipelineName = args[2];
     switch (pipelineName) {
-      case 'list':
+      case "list":
         this.list();
         break;
-      case 'run':
+      case "run":
         this.runPipeline(args[3]);
         break;
       default:
-        console.error(`🥶 Unknown command: "${pipelineName ?? '<none>'}". Possible commands are:`);
-        console.error('   - run <pipeline-name>');
-        console.error('   - list');
+        console.error(
+          `🥶 Unknown command: "${
+            pipelineName ?? "<none>"
+          }". Possible commands are:`
+        );
+        console.error("   - run <pipeline-name>");
+        console.error("   - list");
         break;
     }
   };
@@ -53,7 +61,7 @@ function __Pipelines() {
 const GLOBAL_PIPELINE = new __Pipelines();
 
 function __isPromise(obj) {
-  return !!obj && typeof obj === 'object' && obj.then && obj.catch;
+  return !!obj && typeof obj === "object" && obj.then && obj.catch;
 }
 
 function __toPromise([value, parentValue, depth]) {
@@ -99,7 +107,7 @@ function __sequencifyPromises(values, parentValue, callback) {
 __createPipeline.group = function (description, ...tasks) {
   return (value, parentValue, depth) => {
     return new Promise((resolve, reject) => {
-      __log(description.replace('%s', value), depth);
+      __log(description.replace("%s", value), depth);
       depth++;
       resolve([value, depth]);
     })
@@ -115,9 +123,15 @@ __createPipeline.each = function (description, ...tasks) {
       depth++;
       resolve([value, parentValue, depth]);
     })
-      .then(([value, parentValue, depth]) => [Array.isArray(value) ? value : [value], parentValue, depth])
+      .then(([value, parentValue, depth]) => [
+        Array.isArray(value) ? value : [value],
+        parentValue,
+        depth,
+      ])
       .then(([values, parentValue, depth]) =>
-        __sequencifyPromises(values, parentValue, (value, parentValue) => __chain(tasks)(value, value, depth))
+        __sequencifyPromises(values, parentValue, (value, parentValue) =>
+          __chain(tasks)(value, value, depth)
+        )
       )
       .then(([value]) => {
         return value;
@@ -127,7 +141,7 @@ __createPipeline.each = function (description, ...tasks) {
 
 function __createTask(description, stepCallback) {
   const step = (value, parentValue, depth = 0) => {
-    __log(description.replace('%s', value ?? ''), depth);
+    __log(description.replace("%s", value ?? ""), depth);
     return stepCallback(value, parentValue);
   };
   step.description = description;

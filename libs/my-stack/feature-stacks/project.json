@@ -7,9 +7,7 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/my-stack/feature-stacks/jest.config.ts",
         "passWithNoTests": true
@@ -17,9 +15,7 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "libs/my-stack/feature-stacks/**/*.ts",
@@ -28,8 +24,5 @@
       }
     }
   },
-  "tags": [
-    "scope:my-stack",
-    "type:feature"
-  ]
+  "tags": ["scope:my-stack", "type:feature"]
 }

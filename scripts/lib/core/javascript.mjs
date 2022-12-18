@@ -5,11 +5,11 @@ function __eval() {
 }
 
 function __addSlashes(value) {
-  return value.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
+  return value.replace(/[\\"']/g, "\\$&").replace(/\u0000/g, "\\0");
 }
 
 function __keyToString(key) {
-  if (typeof key === 'string' && !new RegExp('^[a-zA-Z]+$').test(key)) {
+  if (typeof key === "string" && !new RegExp("^[a-zA-Z]+$").test(key)) {
     return `'${__addSlashes(key)}'`;
   }
   return key;
@@ -17,15 +17,18 @@ function __keyToString(key) {
 
 function __objectToString() {
   return (obj) => {
-    if (typeof obj === 'object' && !Array.isArray(obj)) {
+    if (typeof obj === "object" && !Array.isArray(obj)) {
       const objectString = Object.entries(obj)
-        .map(([key, value]) => `${__keyToString(key)}: ${__objectToString()(value)}`)
-        .join(', ');
+        .map(
+          ([key, value]) =>
+            `${__keyToString(key)}: ${__objectToString()(value)}`
+        )
+        .join(", ");
       return `{${objectString}}`;
-    } else if (typeof obj === 'object' && Array.isArray(obj)) {
-      const objectString = obj.map(__objectToString()).join(', ');
+    } else if (typeof obj === "object" && Array.isArray(obj)) {
+      const objectString = obj.map(__objectToString()).join(", ");
       return `[${objectString}]`;
-    } else if (typeof obj === 'string') {
+    } else if (typeof obj === "string") {
       return `'${__addSlashes(obj)}'`;
     } else {
       return obj;
@@ -46,7 +49,8 @@ function __getValues() {
 }
 
 function __filterBy(regularExpression) {
-  return (arr) => arr?.filter((elem) => new RegExp(regularExpression).test(elem));
+  return (arr) =>
+    arr?.filter((elem) => new RegExp(regularExpression).test(elem));
 }
 
 function __map(callback) {
