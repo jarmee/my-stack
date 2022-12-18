@@ -1,1 +1,23 @@
-<p>shared-component-layout works!</p>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    data-test-id="navigtationButton"
+    aria-label="Open Navigation"
+    (click)="onToggleNavigation()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="mr-4">{{ title }}</span>
+</mat-toolbar>
+<main>
+  <mat-drawer-container>
+    <mat-drawer
+      data-test-id="sidebar"
+      mode="side"
+      [opened]="isSidebarNavigationOpen"
+    ></mat-drawer>
+    <mat-drawer-content>
+      <ng-content></ng-content>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</main>
