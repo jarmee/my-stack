@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "api-my-stack:update": "node ./scripts/workspace.mjs run update:open-api-config http://localhost:3333/api-json ./config/api-my-stack/openapi.json",
-    "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack"
+    "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack",
+    "postinstall": "npm run api-my-stack:generate"
   },
   "private": true,
   "devDependencies": {

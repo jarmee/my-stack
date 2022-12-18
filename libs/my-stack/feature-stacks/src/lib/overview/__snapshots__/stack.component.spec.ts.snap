@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StackComponent should match snapshot 1`] = `
+<my-stack-stack
+  __ngContext__={[Function Number]}
+  stack="null"
+>
+  <div
+    class="flex flex-col items-center justify-items-center cursor-pointer"
+  >
+    <mat-card
+      class="mat-mdc-card mdc-card h-[144px] w-[144px]"
+    />
+    <span
+      class="mt-2"
+    >
+    </span>
+  </div>
+</my-stack-stack>
+`;

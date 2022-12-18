@@ -17,7 +17,7 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
         "styles": [
-          "@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "@angular/material/prebuilt-themes/purple-green.css",
           "apps/client/src/styles.scss"
         ],
         "scripts": []
