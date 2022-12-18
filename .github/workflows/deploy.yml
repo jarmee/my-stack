@@ -13,8 +13,6 @@ env:
 jobs:
   deploy-api:
     runs-on: ubuntu-latest
-    env:
-      APP_NAME: my-stack-api
     permissions:
       contents: read
       packages: write
@@ -58,7 +56,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.APP_NAME }}
+          images: ${{ env.REGISTRY }}/my-stack-api
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
@@ -67,12 +65,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          file: apps/${{ env.APP_NAME }}/Dockerfile
+          file: apps/api/Dockerfile
 
   deploy-client:
     runs-on: ubuntu-latest
-    env:
-      APP_NAME: my-stack-client
     permissions:
       contents: read
       packages: write
@@ -116,7 +112,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.APP_NAME }}
+          images: ${{ env.REGISTRY }}/my-stack-client
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
@@ -125,4 +121,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          file: apps/${{ env.APP_NAME }}/Dockerfile
+          file: apps/client/Dockerfile
