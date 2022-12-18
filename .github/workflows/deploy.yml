@@ -73,6 +73,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           file: apps/api/Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   deploy-client:
     runs-on: ubuntu-latest
@@ -136,6 +138,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           file: apps/client/Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
   deploy-db:
     runs-on: ubuntu-latest
@@ -175,3 +179,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           file: config/infra/database/Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
