@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponent should match snapshot 1`] = `
+<my-stack-layout
+  __ngContext__={[Function Number]}
+>
+  <p>
+    shared-component-layout works!
+  </p>
+</my-stack-layout>
+`;
