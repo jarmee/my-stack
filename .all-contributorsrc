@@ -15,6 +15,17 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "florianehmke",
+      "name": "Florian Ehmke",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39598674?v=4",
+      "profile": "https://github.com/florianehmke",
+      "contributions": [
+        "code",
+        "test",
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
