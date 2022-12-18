@@ -8,13 +8,13 @@ on:
       - "feature/deployment" # FIXME
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
   deploy-api:
     runs-on: ubuntu-latest
     env:
-      APP_NAME: api
+      APP_NAME: my-stack-api
     permissions:
       contents: read
       packages: write
@@ -72,7 +72,7 @@ jobs:
   deploy-client:
     runs-on: ubuntu-latest
     env:
-      APP_NAME: client
+      APP_NAME: my-stack-client
     permissions:
       contents: read
       packages: write
