@@ -77,5 +77,5 @@
       "dependsOn": ["build"]
     }
   },
-  "tags": []
+  "tags": ["scope:shared", "type:api"]
 }
