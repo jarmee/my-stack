@@ -1,8 +1,8 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import type { Stack } from "../stack.entity";
+import type { Stack } from '../stack.entity';
 
-@Entity({ name: "technologies" })
+@Entity({ name: 'technologies' })
 export class StackTechnology {
   @PrimaryGeneratedColumn()
   id: number;
@@ -10,6 +10,6 @@ export class StackTechnology {
   @Column({ length: 256 })
   title: string;
 
-  @ManyToOne("Stack", "technologies")
+  @ManyToOne('Stack', 'technologies')
   stack: Stack;
 }

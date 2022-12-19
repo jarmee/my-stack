@@ -1,2 +1,2 @@
-export * from "./stacks.module";
-export * from "./stack.entity";
+export * from './stacks.module';
+export * from './stack.entity';

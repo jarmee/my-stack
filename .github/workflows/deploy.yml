@@ -3,8 +3,8 @@ name: deploy
 on:
   push:
     branches:
-      - "main"
-      - "develop"
+      - 'main'
+      - 'develop'
 
 env:
   REGISTRY: ghcr.io/${{ github.repository_owner }}
@@ -23,8 +23,8 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          cache: "npm"
-          node-version-file: ".nvmrc"
+          cache: 'npm'
+          node-version-file: '.nvmrc'
 
       - name: Cache Node Modules
         uses: actions/cache@v3
@@ -32,7 +32,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: "node_modules"
+          path: 'node_modules'
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
@@ -92,8 +92,8 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          cache: "npm"
-          node-version-file: ".nvmrc"
+          cache: 'npm'
+          node-version-file: '.nvmrc'
 
       - name: Cache Node Modules
         uses: actions/cache@v3
@@ -101,7 +101,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: "node_modules"
+          path: 'node_modules'
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies

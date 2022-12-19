@@ -1,8 +1,8 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateStackDto {
   @ApiProperty({
-    description: "Title",
+    description: 'Title',
     type: String,
   })
   readonly title: string;

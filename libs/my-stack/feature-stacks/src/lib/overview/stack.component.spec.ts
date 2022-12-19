@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StackComponent } from "./stack.component";
+import { StackComponent } from './stack.component';
 
-describe("StackComponent", () => {
+describe('StackComponent', () => {
   let component: StackComponent;
   let fixture: ComponentFixture<StackComponent>;
 
@@ -16,11 +16,11 @@ describe("StackComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should match snapshot", () => {
+  it('should match snapshot', () => {
     expect(fixture).toMatchSnapshot();
   });
 });

@@ -3,25 +3,25 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from "@nestjs/common";
-import { NestFactory } from "@nestjs/core";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-import { AppModule } from "./app/app.module";
+import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = "api";
+  const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
 
   const config = new DocumentBuilder()
-    .setTitle("My Stack")
-    .setDescription("My Stack - Share Your Technical Skills With the World")
-    .setVersion("1.0")
-    .addTag("stacks")
+    .setTitle('My Stack')
+    .setDescription('My Stack - Share Your Technical Skills With the World')
+    .setVersion('1.0')
+    .addTag('stacks')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api", app, document);
+  SwaggerModule.setup('api', app, document);
 
   const port = process.env.PORT || 3333;
   await app.listen(port);

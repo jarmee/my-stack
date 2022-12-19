@@ -1,14 +1,14 @@
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 
 export const ROUTES: Routes = [
   {
-    path: "",
-    redirectTo: "stacks",
-    pathMatch: "full",
+    path: '',
+    redirectTo: 'stacks',
+    pathMatch: 'full',
   },
   {
-    path: "stacks",
+    path: 'stacks',
     loadComponent: () =>
-      import("@my-stack/feature-stacks").then((c) => c.StacksComponent),
+      import('@my-stack/feature-stacks').then((c) => c.StacksComponent),
   },
 ];

@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   my-stack-db:
     image: ghcr.io/jarmee/my-stack-db:${MY_STACK_VERSION:-local}

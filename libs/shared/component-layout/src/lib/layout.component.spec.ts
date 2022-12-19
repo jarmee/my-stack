@@ -1,15 +1,15 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { By } from "@angular/platform-browser";
-import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LayoutComponent } from "./layout.component";
+import { LayoutComponent } from './layout.component';
 
 const CssSelectors = {
   ToggleNavigationButton: By.css('[data-test-id="navigtationButton"]'),
   Sidebar: By.css('[data-test-id="sidebar"]'),
 };
 
-describe("LayoutComponent", () => {
+describe('LayoutComponent', () => {
   let component: LayoutComponent;
   let fixture: ComponentFixture<LayoutComponent>;
 
@@ -23,21 +23,21 @@ describe("LayoutComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should match snapshot", () => {
+  it('should match snapshot', () => {
     expect(fixture).toMatchSnapshot();
   });
 
-  describe("onToggleNavigation", () => {
-    it("should open the navigation", () => {
+  describe('onToggleNavigation', () => {
+    it('should open the navigation', () => {
       component.toggleSidebarNavigation = false;
 
       fixture.debugElement
         .query(CssSelectors.ToggleNavigationButton)
-        .triggerEventHandler("click", {});
+        .triggerEventHandler('click', {});
       fixture.detectChanges();
 
       expect(
@@ -46,12 +46,12 @@ describe("LayoutComponent", () => {
       ).toBe(true);
     });
 
-    it("should close the navigation", () => {
+    it('should close the navigation', () => {
       component.toggleSidebarNavigation = true;
 
       fixture.debugElement
         .query(CssSelectors.ToggleNavigationButton)
-        .triggerEventHandler("click", {});
+        .triggerEventHandler('click', {});
       fixture.detectChanges();
 
       expect(

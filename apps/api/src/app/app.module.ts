@@ -1,24 +1,24 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule, ConfigService } from "@nestjs/config";
-import { TypeOrmModule } from "@nestjs/typeorm";
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Stack, StacksModule } from "./api/stacks";
-import { StackTechnology } from "./api/stacks/technologies";
+import { Stack, StacksModule } from './api/stacks';
+import { StackTechnology } from './api/stacks/technologies';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [".env.development.local", ".env.development"],
+      envFilePath: ['.env.development.local', '.env.development'],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (config: ConfigService) => ({
-        type: "postgres",
-        host: config.get("DB_HOST") ?? "localhost",
-        port: config.get("DB_PORT") ?? 5432,
-        username: config.get("DB_USER") ?? "root",
-        password: config.get("DB_PASS") ?? "secret",
-        database: "mystack",
+        type: 'postgres',
+        host: config.get('DB_HOST') ?? 'localhost',
+        port: config.get('DB_PORT') ?? 5432,
+        username: config.get('DB_USER') ?? 'root',
+        password: config.get('DB_PASS') ?? 'secret',
+        database: 'mystack',
         entities: [Stack, StackTechnology],
         synchronize: true,
       }),

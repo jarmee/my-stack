@@ -1,1 +1,1 @@
-export * from "./lib/stacks.component";
+export * from './lib/stacks.component';
