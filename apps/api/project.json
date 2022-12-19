@@ -72,7 +72,7 @@
     "docker": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "docker build -f apps/api/Dockerfile . -t ghcr.io/jarmee/my-stack-api:local"
+        "command": "docker build -f config/infra/api/Dockerfile . -t ghcr.io/jarmee/my-stack-api:local"
       },
       "dependsOn": ["build"]
     }

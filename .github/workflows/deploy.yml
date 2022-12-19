@@ -75,7 +75,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          file: apps/api/Dockerfile
+          file: config/infra/api/Dockerfile
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -144,7 +144,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          file: apps/client/Dockerfile
+          file: config/infra/client/Dockerfile
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
