@@ -7,8 +7,47 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   selector: 'mys-layout',
   standalone: true,
   imports: [MatToolbarModule, MatSidenavModule, MatButtonModule, MatIconModule],
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss'],
+  template: `
+    <mat-toolbar color="primary">
+      <div class="container mx-auto flex items-center">
+        <button
+          mat-icon-button
+          data-test-id="navigtationButton"
+          aria-label="Open Navigation"
+          (click)="onToggleNavigation()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="mr-4">{{ title }}</span>
+      </div>
+    </mat-toolbar>
+    <main>
+      <mat-drawer-container>
+        <mat-drawer
+          data-test-id="sidebar"
+          mode="over"
+          autoFocus="false"
+          [opened]="isSidebarNavigationOpen"
+        ></mat-drawer>
+        <mat-drawer-content class="container mx-auto pt-3">
+          <ng-content></ng-content>
+        </mat-drawer-content>
+      </mat-drawer-container>
+    </main>
+  `,
+  styles: [
+    `
+      main,
+      mat-drawer-container {
+        height: inherit;
+      }
+    `,
+    `
+      mat-drawer {
+        width: 248px;
+      }
+    `,
+  ],
 })
 export class LayoutComponent {
   @Input()
