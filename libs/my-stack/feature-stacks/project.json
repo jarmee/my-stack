@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/my-stack/feature-stacks/src",
-  "prefix": "my-stack",
+  "prefix": "mys",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",

@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 import { StackComponent } from './stack.component';
 
 @Component({
-  selector: 'my-stack-stacks-overview',
+  selector: 'mys-stacks-overview',
   standalone: true,
   imports: [CommonModule, StackComponent, MatDividerModule],
   templateUrl: './stacks-overview.component.html',

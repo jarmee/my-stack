@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Stack } from '@my-stack/shared/api-my-stack';
 
 @Component({
-  selector: 'my-stack-stack',
+  selector: 'mys-stack',
   standalone: true,
   imports: [CommonModule, MatCardModule],
   templateUrl: './stack.component.html',

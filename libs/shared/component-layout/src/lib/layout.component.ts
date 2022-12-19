@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 @Component({
-  selector: 'my-stack-layout',
+  selector: 'mys-layout',
   standalone: true,
   imports: [MatToolbarModule, MatSidenavModule, MatButtonModule, MatIconModule],
   templateUrl: './layout.component.html',

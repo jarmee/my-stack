@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { StacksOverviewComponent } from './overview/stacks-overview.component';
 
 @Component({
-  selector: 'my-stack-stacks',
+  selector: 'mys-stacks',
   standalone: true,
   imports: [StacksOverviewComponent],
   templateUrl: './stacks.component.html',
