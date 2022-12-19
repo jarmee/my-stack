@@ -1,0 +1,69 @@
+version: '3'
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: on-failure:5
+    networks:
+      - my-stack
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_CLEANUP: "true"
+    command: --interval 180 --debug my-stack-db my-stack-api my-stack-client
+    logging:
+      driver: journald
+      options:
+        tag: "container-{{.Name}}"
+    labels:
+      - "traefik.enable=false"
+
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: on-failure:5
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - my-stack
+    command:
+      #- --log.level=DEBUG
+      # Tell Traefik to discover containers using the Docker API
+      - --providers.docker=true
+      - --providers.docker.defaultrule=Host(`{{ index .Labels "com.docker.compose.service" }}.mystack.letz.dev`)
+      # Enable the Trafik dashboard
+      - --api.dashboard=true
+      - --api.insecure=true
+      # Set up LetsEncrypt
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.letsencrypt.acme.email=imba3r@gmail.com
+      - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
+      # Set up an insecure listener that redirects all traffic to TLS
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      # Set up the TLS configuration for our websecure listener
+      - --entrypoints.websecure.http.tls=true
+      - --entrypoints.websecure.http.tls.certResolver=letsencrypt
+      - --entrypoints.websecure.http.tls.domains[0].main=mystack.letz.dev
+      - --entrypoints.websecure.http.tls.domains[0].sans=api.develop.mystack.letz.dev,client.develop.mystack.letz.dev
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik:/letsencrypt"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`mystack.letz.dev`)"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.middlewares=strip"
+      - "traefik.http.middlewares.strip.stripprefix.prefixes=/traefik"
+    logging:
+      driver: journald
+      options:
+        tag: "container-{{.Name}}"
+
+networks:
+  my-stack:
+    external: true
