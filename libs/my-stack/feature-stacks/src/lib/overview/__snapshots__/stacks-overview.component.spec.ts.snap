@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StacksOverviewComponent should match snapshot 1`] = `
-<my-stack-stacks-overview
+<mys-stacks-overview
   __ngContext__={[Function Number]}
   stacks$={[Function Observable]}
 >
@@ -20,5 +20,5 @@ exports[`StacksOverviewComponent should match snapshot 1`] = `
     >
     </div>
   </div>
-</my-stack-stacks-overview>
+</mys-stacks-overview>
 `;
