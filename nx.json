@@ -46,10 +46,12 @@
     },
     "@nrwl/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "prefix": "mys"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "prefix": "mys"
     }
   }
 }
