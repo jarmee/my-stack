@@ -2,29 +2,41 @@ version: '3'
 services:
   my-stack-db:
     image: ghcr.io/jarmee/my-stack-db:${MY_STACK_VERSION:-local}
+    container_name: my-stack-db
     environment:
-      POSTGRES_DB: mystack
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: "mystack"
+      POSTGRES_USER: "${DB_USER:-root}"
+      POSTGRES_PASSWORD: "${DB_PASS:-secret}"
     ports:
-      - 5432:5432
+      - "${DB_PORT:-5432}:5432"
     volumes:
       - my-stack-data:/data/db
 
   my-stack-client:
     image: ghcr.io/jarmee/my-stack-client:${MY_STACK_VERSION:-local}
+    container_name: my-stack-client
     ports:
-      - 8081:80
+      - "8081:80"
 
   my-stack-api:
     image: ghcr.io/jarmee/my-stack-api:${MY_STACK_VERSION:-local}
+    container_name: my-stack-api
     environment:
-      DB_HOST: my-stack-db
-      DB_PORT: 5432
-      DB_USER: root
-      DB_PASS: secret
+      DB_HOST: "my-stack-db"
+      DB_PORT: "${DB_PORT:-5432}"
+      DB_USER: "${DB_USER:-root}"
+      DB_PASS: "${DB_PASS:-secret}"
     ports:
-      - 3333:3333
+      - "3333:3333"
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_CLEANUP: "true"
+    command: --interval 180 --debug my-stack-db my-stack-api my-stack-client
 
 volumes:
   my-stack-data:
