@@ -1,7 +1,7 @@
-version: "3.1"
+version: '3'
 services:
   my-stack-db:
-    image: postgres:latest
+    image: ghcr.io/jarmee/my-stack-db:${MY_STACK_VERSION:-local}
     environment:
       POSTGRES_DB: mystack
       POSTGRES_USER: root
@@ -10,5 +10,21 @@ services:
       - 5432:5432
     volumes:
       - my-stack-data:/data/db
+
+  my-stack-client:
+    image: ghcr.io/jarmee/my-stack-client:${MY_STACK_VERSION:-local}
+    ports:
+      - 8081:80
+
+  my-stack-api:
+    image: ghcr.io/jarmee/my-stack-api:${MY_STACK_VERSION:-local}
+    environment:
+      DB_HOST: my-stack-db
+      DB_PORT: 5432
+      DB_USER: root
+      DB_PASS: secret
+    ports:
+      - 3333:3333
+
 volumes:
   my-stack-data:

@@ -1,10 +1,10 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
-import { CreateStackDto as CreateStackDto } from "./create-stack.dto";
-import { Stack } from "./stack.entity";
-import { UpdateStackDto } from "./update-stack.dto";
+import { CreateStackDto as CreateStackDto } from './create-stack.dto';
+import { Stack } from './stack.entity';
+import { UpdateStackDto } from './update-stack.dto';
 
 @Injectable()
 export class StacksService {

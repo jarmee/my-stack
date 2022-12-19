@@ -1,7 +1,7 @@
-import { execSync } from "child_process";
-import { writeFileContents } from "../core/files.mjs";
-import { pipe, task } from "../core/pipeline.mjs";
-import { fetch, responseToJSON } from "../core/requests.mjs";
+import { execSync } from 'child_process';
+import { writeFileContents } from '../core/files.mjs';
+import { pipe, task } from '../core/pipeline.mjs';
+import { fetch, responseToJSON } from '../core/requests.mjs';
 
 function formatOpemApiFile(fileName) {
   return () => {
@@ -9,16 +9,16 @@ function formatOpemApiFile(fileName) {
   };
 }
 
-pipe("update:open-api-config", () => {
+pipe('update:open-api-config', () => {
   const openApiSchemaUrl = process.argv[4];
   const openApiSchemaPath = process.argv[5];
-  if (!openApiSchemaPath) throw new Error("open-api-schema-path is required");
-  if (!openApiSchemaUrl) throw new Error("open-api-schema-url is required");
+  if (!openApiSchemaPath) throw new Error('open-api-schema-path is required');
+  if (!openApiSchemaUrl) throw new Error('open-api-schema-url is required');
   pipe.group(
     `🎣 saving Open-API schema from %s to ${openApiSchemaPath}`,
     fetch(), //
-    task("✔️  convert response to JSON", responseToJSON()), //
-    task("✔️  stringify response", (contents) =>
+    task('✔️  convert response to JSON', responseToJSON()), //
+    task('✔️  stringify response', (contents) =>
       JSON.stringify(contents, null, 2)
     ), //
     task(`✔️  write schema`, writeFileContents(openApiSchemaPath)),

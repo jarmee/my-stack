@@ -1,6 +1,7 @@
-import { readFileSync, writeFileSync } from "fs";
-import glob from "glob";
-import { cwd } from "process";
+import { readFileSync, writeFileSync } from 'fs';
+import glob from 'glob';
+import { cwd } from 'process';
+import { execSync } from 'child_process';
 
 const ALL_FILES_GLOB = (fileName) => `**/${fileName}`;
 
@@ -13,7 +14,7 @@ function __getAllFiles(fileName, ignore) {
 function __getFileContents() {
   return (fileName) => {
     return readFileSync(`${cwd()}/${fileName}`, {
-      encoding: "utf-8",
+      encoding: 'utf-8',
     });
   };
 }
@@ -34,9 +35,24 @@ function __readJSONFile(fileName) {
   };
 }
 
+function __formatFileWithPrettier(fileName) {
+  return (_, fromParent) => {
+    execSync(`npx prettier ${fileName ?? fromParent} --write`);
+  };
+}
+
+function __removeFileNameFromPath(filePath) {
+  return (_, fromParent) => {
+    const path = filePath ?? fromParent;
+    return path.substring(0, path.lastIndexOf('/'));
+  };
+}
+
 export {
   __getAllFiles as getAllFiles,
   __getFileContents as readFileContents,
   __writeFileContents as writeFileContents,
   __readJSONFile as readJSONFile,
+  __formatFileWithPrettier as formatFileWithPrettier,
+  __removeFileNameFromPath as removeFileNameFromPath,
 };

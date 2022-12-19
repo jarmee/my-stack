@@ -3,12 +3,17 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "ws": "node scripts/workspace.mjs run",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "format:check": "nx format:check",
+    "format:write": "nx format:write",
     "api-my-stack:update": "node ./scripts/workspace.mjs run update:open-api-config http://localhost:3333/api-json ./config/api-my-stack/openapi.json",
     "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack",
-    "postinstall": "npm run api-my-stack:generate"
+    "postinstall": "npm run api-my-stack:generate",
+    "docker:database": "docker build -f config/infra/database/Dockerfile . -t ghcr.io/jarmee/my-stack-db:local",
+    "docker:all": "npm run docker:database && nx run-many --target=docker --projects=client,api"
   },
   "private": true,
   "devDependencies": {
@@ -67,6 +72,7 @@
     "@angular/platform-browser-dynamic": "~15.0.0",
     "@angular/router": "~15.0.0",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",

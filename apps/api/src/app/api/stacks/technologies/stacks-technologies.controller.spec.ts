@@ -1,15 +1,15 @@
-import { faker } from "@faker-js/faker";
-import { INestApplication } from "@nestjs/common";
-import { Test } from "@nestjs/testing";
-import { TypeOrmModule } from "@nestjs/typeorm";
-import * as supertest from "supertest";
-import { Repository } from "typeorm";
+import { faker } from '@faker-js/faker';
+import { INestApplication } from '@nestjs/common';
+import { Test } from '@nestjs/testing';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import * as supertest from 'supertest';
+import { Repository } from 'typeorm';
 
-import { TestDataFactory } from "../../../../testing";
-import { API } from "../../../constants";
-import { Stack } from "../stack.entity";
-import { StackTechnology } from "./stack-technology.entity";
-import { StacksTechnologiesModule } from "./stacks-technologies.module";
+import { TestDataFactory } from '../../../../testing';
+import { API } from '../../../constants';
+import { Stack } from '../stack.entity';
+import { StackTechnology } from './stack-technology.entity';
+import { StacksTechnologiesModule } from './stacks-technologies.module';
 
 fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
   let app: INestApplication;
@@ -22,8 +22,8 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
       imports: [
         StacksTechnologiesModule,
         TypeOrmModule.forRoot({
-          type: "better-sqlite3",
-          database: ":memory:",
+          type: 'better-sqlite3',
+          database: ':memory:',
           dropSchema: true,
           entities: [Stack, StackTechnology],
           synchronize: true,
@@ -34,32 +34,32 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
     app = testingModule.createNestApplication();
     await app.init();
 
-    stackRepository = testingModule.get("StackRepository");
-    repository = testingModule.get("StackTechnologyRepository");
+    stackRepository = testingModule.get('StackRepository');
+    repository = testingModule.get('StackTechnologyRepository');
   });
 
   beforeEach(async () => {
     stack = await stackRepository.save(TestDataFactory.Stack.build() as Stack);
   });
 
-  describe("create", () => {
-    it("should create the given technology", async () => {
+  describe('create', () => {
+    it('should create the given technology', async () => {
       const actual = TestDataFactory.StackTechnology.build();
 
       const { body } = await supertest
         .agent(app.getHttpServer())
         .post(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES(stack.id)}`)
         .send(actual)
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
         .expect(201);
 
       expect(body.title).toEqual(actual.title);
     });
   });
 
-  describe("getAll", () => {
-    const expected: Array<Omit<StackTechnology, "stack">> = [];
+  describe('getAll', () => {
+    const expected: Array<Omit<StackTechnology, 'stack'>> = [];
 
     beforeEach(async () => {
       const stackTechnologies = TestDataFactory.StackTechnology.buildList(10);
@@ -76,12 +76,12 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
       }
     });
 
-    it("should return the expected technologies", async () => {
+    it('should return the expected technologies', async () => {
       const { body } = await supertest
         .agent(app.getHttpServer())
         .get(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES(stack.id)}`)
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
         .expect(200);
 
       expect(body).toBeDefined();
@@ -89,8 +89,8 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
     });
   });
 
-  describe("getById", () => {
-    it("should return the expected technology", async () => {
+  describe('getById', () => {
+    it('should return the expected technology', async () => {
       const technology = await repository.save({
         ...TestDataFactory.StackTechnology.build(),
         stack: stack,
@@ -103,8 +103,8 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
       const { body } = await supertest
         .agent(app.getHttpServer())
         .get(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES(stack.id)}/${expected.id}`)
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
         .expect(200);
 
       expect(body).toBeDefined();
@@ -112,8 +112,8 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
     });
   });
 
-  describe("update", () => {
-    it("should update the expected technology", async () => {
+  describe('update', () => {
+    it('should update the expected technology', async () => {
       const actual = await repository.save({
         ...TestDataFactory.StackTechnology.build(),
         stack: stack,
@@ -127,16 +127,16 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
         .agent(app.getHttpServer())
         .put(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES(stack.id)}/${expected.id}`)
         .send(expected)
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
         .expect(200);
 
       expect(body).toEqual(expected);
     });
   });
 
-  describe("delete", () => {
-    it("should delete the expected technology", async () => {
+  describe('delete', () => {
+    it('should delete the expected technology', async () => {
       const actual = await repository.save({
         ...TestDataFactory.StackTechnology.build(),
         stack: stack,
@@ -145,7 +145,7 @@ fdescribe(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES()}`, () => {
       await supertest
         .agent(app.getHttpServer())
         .delete(`/${API.ENDPOINTS.STACKS_TECHNOLOGIES(stack.id)}/${actual.id}`)
-        .set("Accept", "application/json")
+        .set('Accept', 'application/json')
         .expect(204);
 
       const expected = await repository.find();
