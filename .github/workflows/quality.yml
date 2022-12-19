@@ -19,8 +19,8 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          cache: 'npm'
-          node-version-file: '.nvmrc'
+          cache: "npm"
+          node-version-file: ".nvmrc"
 
       - name: Cache Node Modules
         uses: actions/cache@v3
@@ -28,12 +28,15 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: 'node_modules'
+          path: "node_modules"
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+
+      - name: Generate Clients
+        run: npm run api-my-stack:generate
 
       - name: Run NX Quality Targets
         uses: mansagroup/nrwl-nx-action@v3

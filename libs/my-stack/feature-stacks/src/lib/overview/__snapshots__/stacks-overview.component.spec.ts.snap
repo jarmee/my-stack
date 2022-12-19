@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StacksOverviewComponent should match snapshot 1`] = `
+<my-stack-stacks-overview
+  __ngContext__={[Function Number]}
+  stacks$={[Function Observable]}
+>
+  <div
+    class="px-4"
+  >
+    <h1>
+      Stacks
+    </h1>
+    <mat-divider
+      class="mat-divider"
+      role="separator"
+    />
+    <div
+      class="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mt-3 h-100"
+    >
+    </div>
+  </div>
+</my-stack-stacks-overview>
+`;

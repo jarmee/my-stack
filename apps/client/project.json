@@ -16,7 +16,10 @@
         "tsConfig": "apps/client/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
-        "styles": ["apps/client/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/purple-green.css",
+          "apps/client/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {

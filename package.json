@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "api-my-stack:update": "node ./scripts/workspace.mjs run update:open-api-config http://localhost:3333/api-json ./config/api-my-stack/openapi.json",
-    "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack"
+    "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack",
+    "postinstall": "npm run api-my-stack:generate"
   },
   "private": true,
   "devDependencies": {
@@ -56,10 +57,12 @@
   },
   "dependencies": {
     "@angular/animations": "~15.0.0",
+    "@angular/cdk": "^15.0.3",
     "@angular/common": "~15.0.0",
     "@angular/compiler": "~15.0.0",
     "@angular/core": "~15.0.0",
     "@angular/forms": "~15.0.0",
+    "@angular/material": "^15.0.3",
     "@angular/platform-browser": "~15.0.0",
     "@angular/platform-browser-dynamic": "~15.0.0",
     "@angular/router": "~15.0.0",

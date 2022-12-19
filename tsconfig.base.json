@@ -16,7 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@my-stack/feature-stacks": ["libs/my-stack/feature-stacks/src/index.ts"],
-      "@my-stack/shared/api-my-stack": ["libs/shared/api-my-stack/src/index.ts"]
+      "@my-stack/shared/api-my-stack": [
+        "libs/shared/api-my-stack/src/index.ts"
+      ],
+      "@my-stack/shared/component-layout": [
+        "libs/shared/component-layout/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
