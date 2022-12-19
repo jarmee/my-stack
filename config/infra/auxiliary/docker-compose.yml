@@ -28,10 +28,8 @@ services:
     networks:
       - my-stack
     command:
-      #- --log.level=DEBUG
       # Tell Traefik to discover containers using the Docker API
       - --providers.docker=true
-      - --providers.docker.defaultrule=Host(`{{ index .Labels "com.docker.compose.service" }}.mystack.letz.dev`)
       # Enable the Trafik dashboard
       - --api.dashboard=true
       - --api.insecure=true
@@ -42,18 +40,20 @@ services:
       - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
       # Set up an insecure listener that redirects all traffic to TLS
       - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
       - --entrypoints.websecure.address=:443
       # Set up the TLS configuration for our websecure listener
       - --entrypoints.websecure.http.tls=true
       - --entrypoints.websecure.http.tls.certResolver=letsencrypt
       - --entrypoints.websecure.http.tls.domains[0].main=mystack.letz.dev
-      - --entrypoints.websecure.http.tls.domains[0].sans=api.develop.mystack.letz.dev,client.develop.mystack.letz.dev
+      - --entrypoints.websecure.http.tls.domains[0].sans=traefik.mystack.letz.dev,develop.mystack.letz.dev
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./traefik:/letsencrypt"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`mystack.letz.dev`)"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.mystack.letz.dev`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
       - "traefik.http.routers.traefik.service=api@internal"

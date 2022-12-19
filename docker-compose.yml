@@ -26,7 +26,7 @@ services:
     ports:
       - "8081:80"
     labels:
-      - "traefik.http.routers.my-stack-client.rule=Host(`client.${MY_STACK_VERSION:-local}.mystack.letz.dev`)"
+      - "traefik.http.routers.my-stack-client.rule=Host(`${MY_STACK_VERSION:-local}.mystack.letz.dev`)"
 
   my-stack-api:
     image: ghcr.io/jarmee/my-stack-api:${MY_STACK_VERSION:-local}
@@ -42,7 +42,7 @@ services:
       DB_USER: "${DB_USER:-root}"
       DB_PASS: "${DB_PASS:-secret}"
     labels:
-      - "traefik.http.routers.my-stack-api.rule=Host(`api.${MY_STACK_VERSION:-local}.mystack.letz.dev`)"
+      - "traefik.http.routers.my-stack-api.rule=Host(`${MY_STACK_VERSION:-local}.mystack.letz.dev`) && PathPrefix(`/api`)"
 
 volumes:
   my-stack-data:

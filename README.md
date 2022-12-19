@@ -14,9 +14,14 @@
 
 **My Stack** gives you the possibility to share your technical skills with the world in an easy manner.
 
+### Demo
+
+The current state of my-stack is always deployed at https://develop.mystack.letz.dev.
+If you want to try it out on your local machine/server you can just fire up the `docker-compose.yml` from this repository with `docker-compose up -d`.
+
 ### Development 💻
 
-#### Prerequisits
+#### Prerequisites
 
 To be able to run **My Stack** on your local machine please make sure that you have installed the following software:
 
