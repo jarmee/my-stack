@@ -5,7 +5,7 @@ import { LayoutComponent } from '@my-stack/shared/component-layout';
 @Component({
   standalone: true,
   imports: [RouterModule, LayoutComponent],
-  selector: 'mystack-root',
+  selector: 'mys-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

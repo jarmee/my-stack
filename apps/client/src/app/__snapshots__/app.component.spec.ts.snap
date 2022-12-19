@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppComponent should match snapshot 1`] = `
-<mystack-root
+<mys-root
   __ngContext__={[Function Number]}
   title={[Function String]}
 >
@@ -70,5 +70,5 @@ exports[`AppComponent should match snapshot 1`] = `
       </mat-drawer-container>
     </main>
   </mys-layout>
-</mystack-root>
+</mys-root>
 `;
