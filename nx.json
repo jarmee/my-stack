@@ -50,8 +50,7 @@
       "prefix": "mys"
     },
     "@nrwl/angular:component": {
-      "style": "scss",
-      "prefix": "mys"
+      "style": "scss"
     }
   }
 }
