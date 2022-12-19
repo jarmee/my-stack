@@ -108,6 +108,9 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Generate Clients
+        run: npm run api-my-stack:generate
+
       - name: Build
         uses: mansagroup/nrwl-nx-action@v3
         with:
