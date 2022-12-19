@@ -85,7 +85,7 @@
     "docker": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "docker build -f apps/client/Dockerfile . -t client"
+        "command": "docker build -f apps/client/Dockerfile . -t ghcr.io/jarmee/my-stack-client:local"
       },
       "dependsOn": ["build"]
     }
