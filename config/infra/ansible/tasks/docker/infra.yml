@@ -1,0 +1,31 @@
+- name: creates directory for docker-compose files
+  file:
+    path: "{{ ansible_env.HOME }}/infra"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ group }}"
+    mode: 0700
+
+- name: copies docker-compose.yml to stack folder
+  copy:
+    src: "files/docker/infra/docker-compose.yml"
+    dest: "{{ ansible_env.HOME }}/infra/docker-compose.yml"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ group }}"
+    mode: 0600
+  register: compose
+
+- name: templates .env to stack folder
+  template:
+    src: "files/docker/infra/.env.j2"
+    dest: "{{ ansible_env.HOME }}/infra/.env"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ group }}"
+    mode: 0600
+  register: env
+
+- name: start containers
+  command: "docker compose up -d --remove-orphans"
+  args:
+    chdir: "{{ ansible_env.HOME }}/infra"
+  when: env.changed or compose.changed

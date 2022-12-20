@@ -1,0 +1,3 @@
+- name: create traefik-proxy network
+  community.docker.docker_network:
+    name: traefik-proxy

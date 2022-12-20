@@ -4,8 +4,6 @@ services:
     image: ghcr.io/jarmee/my-stack-db:${MY_STACK_VERSION:-local}
     container_name: my-stack-db
     restart: on-failure:5
-    networks:
-      - my-stack
     ports:
       - "${DB_PORT:-5432}:5432"
     environment:
@@ -14,39 +12,25 @@ services:
       POSTGRES_PASSWORD: "${DB_PASS:-secret}"
     volumes:
       - my-stack-data:/data/db
-    labels:
-      - "traefik.enable=false"
 
   my-stack-client:
     image: ghcr.io/jarmee/my-stack-client:${MY_STACK_VERSION:-local}
     container_name: my-stack-client
     restart: on-failure:5
-    networks:
-      - my-stack
     ports:
-      - "8081:80"
-    labels:
-      - "traefik.http.routers.my-stack-client.rule=Host(`${MY_STACK_VERSION:-local}.mystack.letz.dev`)"
+      - "${CLIENT_PORT:-8080}:80"
 
   my-stack-api:
     image: ghcr.io/jarmee/my-stack-api:${MY_STACK_VERSION:-local}
     container_name: my-stack-api
     restart: on-failure:5
-    networks:
-      - my-stack
     ports:
-      - "3333:3333"
+      - "${API_PORT:-3333}:3333"
     environment:
       DB_HOST: "my-stack-db"
       DB_PORT: "${DB_PORT:-5432}"
       DB_USER: "${DB_USER:-root}"
       DB_PASS: "${DB_PASS:-secret}"
-    labels:
-      - "traefik.http.routers.my-stack-api.rule=Host(`${MY_STACK_VERSION:-local}.mystack.letz.dev`) && PathPrefix(`/api`)"
 
 volumes:
   my-stack-data:
-
-networks:
-  my-stack:
-    external: ${MY_STACK_NETWORK_EXTERNAL:-false}

@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars_files:
+    - localhost.config.yml
+  tasks:
+    - import_tasks: tasks/set-group.yml
+    - import_tasks: tasks/install-ssh-key.yml
