@@ -13,8 +13,8 @@
     "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack",
     "docker:database": "docker build -f config/infra/database/Dockerfile . -t ghcr.io/jarmee/my-stack-db:local",
     "docker:all": "npm run docker:database && nx run-many --target=docker --projects=client,api",
-    "build-info:api": "node ./scripts/workspace.mjs run update:build-info './apps/api/src/build-info.ts'",
-    "build-info:client": "node ./scripts/workspace.mjs run update:build-info './apps/client/src/build-info.ts'",
+    "build-info:api": "node ./scripts/workspace.mjs run update:build-info './apps/api/src/app/build-info.ts'",
+    "build-info:client": "node ./scripts/workspace.mjs run update:build-info './apps/client/src/app/build-info.ts'",
     "build-info:all": "npm run build-info:api && npm run build-info:client",
     "postinstall": "npm run api-my-stack:generate && npm run build-info:all"
   },
