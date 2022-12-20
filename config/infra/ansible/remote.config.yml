@@ -1,0 +1,7 @@
+deployments:
+  master:
+    prefix: ""
+    version: "develop" # FIXME - change once master is published
+  develop:
+    prefix: "develop."
+    version: "develop"

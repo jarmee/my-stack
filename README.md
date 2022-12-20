@@ -16,7 +16,10 @@
 
 ### Demo
 
-The current state of my-stack is always deployed at https://develop.mystack.letz.dev.
+The current state of my-stack is always deployed at:
+- https://mystack.letz.dev (master)
+- https://develop.mystack.letz.dev (develop)
+
 If you want to try it out on your local machine/server you can just fire up the `docker-compose.yml` from this repository with `docker-compose up -d`.
 
 ### Development 💻

@@ -1,0 +1,12 @@
+- ansible.builtin.debug:
+    msg: "{{ ansible_os_family }}"
+
+- name: set group variable (mac/darwin)
+  ansible.builtin.set_fact:
+    group: "staff"
+  when: ansible_os_family | lower == "darwin"
+
+- name: set group variable (debian-like)
+  ansible.builtin.set_fact:
+    group: "{{ ansible_user_id }}"
+  when: ansible_os_family | lower == "debian"

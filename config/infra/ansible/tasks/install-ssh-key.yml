@@ -1,0 +1,22 @@
+- name: creates .ssh directory
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ group }}"
+
+- name: copies ssh private key into .ssh folder
+  copy:
+    src: "ssh-key/id_my-stack"
+    dest: "{{ ansible_env.HOME }}/.ssh/id_my-stack"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ group }}"
+    mode: 0600
+
+- name: copies ssh public key into .ssh folder
+  copy:
+    src: "ssh-key/id_my-stack.pub"
+    dest: "{{ ansible_env.HOME }}/.ssh/id_my-stack.pub"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ group }}"
+    mode: 0600

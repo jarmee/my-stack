@@ -1,0 +1,14 @@
+---
+- hosts: remote
+  vars_files:
+    - remote.config.yml
+  tasks:
+    - import_tasks: tasks/set-group.yml
+    - import_tasks: tasks/docker/network.yml
+    - import_tasks: tasks/docker/infra.yml
+
+    - name: create deployments
+      include_tasks: tasks/docker/app.yml
+      loop: "{{ lookup('dict', deployments) }}"
+      loop_control:
+        loop_var: deployment
