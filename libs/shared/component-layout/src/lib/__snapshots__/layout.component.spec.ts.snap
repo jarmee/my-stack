@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LayoutComponent should match snapshot 1`] = `
-<my-stack-layout
+<mys-layout
   __ngContext__={[Function Number]}
   title=""
   toggleSidebarNavigation="false"
@@ -79,5 +79,5 @@ exports[`LayoutComponent should match snapshot 1`] = `
       />
     </mat-drawer-container>
   </main>
-</my-stack-layout>
+</mys-layout>
 `;

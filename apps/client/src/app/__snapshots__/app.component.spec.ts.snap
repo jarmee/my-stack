@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppComponent should match snapshot 1`] = `
-<mystack-root
+<mys-root
   __ngContext__={[Function Number]}
   title={[Function String]}
 >
-  <my-stack-layout>
+  <mys-layout>
     <mat-toolbar
       class="mat-toolbar mat-primary"
       color="primary"
@@ -69,6 +69,6 @@ exports[`AppComponent should match snapshot 1`] = `
         </mat-drawer-content>
       </mat-drawer-container>
     </main>
-  </my-stack-layout>
-</mystack-root>
+  </mys-layout>
+</mys-root>
 `;

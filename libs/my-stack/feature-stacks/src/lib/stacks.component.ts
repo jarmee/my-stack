@@ -3,10 +3,16 @@ import { Component } from '@angular/core';
 import { StacksOverviewComponent } from './overview/stacks-overview.component';
 
 @Component({
-  selector: 'my-stack-stacks',
+  selector: 'mys-stacks',
   standalone: true,
   imports: [StacksOverviewComponent],
-  templateUrl: './stacks.component.html',
-  styleUrls: ['./stacks.component.scss'],
+  template: `<mys-stacks-overview></mys-stacks-overview>`,
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
 })
 export class StacksComponent {}

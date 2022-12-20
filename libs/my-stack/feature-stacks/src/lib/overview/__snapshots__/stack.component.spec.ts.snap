@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StackComponent should match snapshot 1`] = `
-<my-stack-stack
+<mys-stack
   __ngContext__={[Function Number]}
   stack="null"
 >
@@ -16,5 +16,5 @@ exports[`StackComponent should match snapshot 1`] = `
     >
     </span>
   </div>
-</my-stack-stack>
+</mys-stack>
 `;

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StacksComponent should match the snapshot 1`] = `
-<my-stack-stacks
+<mys-stacks
   __ngContext__={[Function Number]}
 >
-  <my-stack-stacks-overview>
+  <mys-stacks-overview>
     <div
       class="px-4"
     >
@@ -19,7 +19,7 @@ exports[`StacksComponent should match the snapshot 1`] = `
       <div
         class="grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4 mt-3 h-100"
       >
-        <my-stack-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -32,8 +32,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-0
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -46,8 +46,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-1
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -60,8 +60,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-2
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -74,8 +74,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-3
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -88,8 +88,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-4
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -102,8 +102,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-5
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -116,8 +116,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-6
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -130,8 +130,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-7
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -144,8 +144,8 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-8
             </span>
           </div>
-        </my-stack-stack>
-        <my-stack-stack>
+        </mys-stack>
+        <mys-stack>
           <div
             class="flex flex-col items-center justify-items-center cursor-pointer"
           >
@@ -158,9 +158,9 @@ exports[`StacksComponent should match the snapshot 1`] = `
               test-9
             </span>
           </div>
-        </my-stack-stack>
+        </mys-stack>
       </div>
     </div>
-  </my-stack-stacks-overview>
-</my-stack-stacks>
+  </mys-stacks-overview>
+</mys-stacks>
 `;

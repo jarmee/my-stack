@@ -4,11 +4,22 @@ import { MatCardModule } from '@angular/material/card';
 import { Stack } from '@my-stack/shared/api-my-stack';
 
 @Component({
-  selector: 'my-stack-stack',
+  selector: 'mys-stack',
   standalone: true,
   imports: [CommonModule, MatCardModule],
-  templateUrl: './stack.component.html',
-  styleUrls: ['./stack.component.scss'],
+  template: `
+    <div class="flex flex-col items-center justify-items-center cursor-pointer">
+      <mat-card class="h-[144px] w-[144px]"></mat-card>
+      <span class="mt-2">{{ stack?.title }}</span>
+    </div>
+  `,
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StackComponent {
