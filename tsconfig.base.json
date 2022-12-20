@@ -19,6 +19,7 @@
       "@my-stack/shared/api-my-stack": [
         "libs/shared/api-my-stack/src/index.ts"
       ],
+      "@my-stack/shared/build-info": ["libs/shared/build-info/src/index.ts"],
       "@my-stack/shared/component-layout": [
         "libs/shared/component-layout/src/index.ts"
       ]

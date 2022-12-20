@@ -32,7 +32,7 @@ function getBuildDate() {
 function toBuildInfoFileContent() {
   return (gitBranchName, gitCommitHash, buildDate) => {
     return `export const GIT_BRANCH = "${gitBranchName}";
-    export const GIT_COMMIT_HAS = "${gitCommitHash}";
+    export const GIT_COMMIT_HASH = "${gitCommitHash}";
     export const BUILD_DATE = "${buildDate}";
     `;
   };

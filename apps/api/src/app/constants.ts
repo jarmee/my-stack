@@ -3,5 +3,6 @@ export const API = {
     STACKS: 'stacks',
     STACKS_TECHNOLOGIES: (stackId: number | string = ':stackId') =>
       `stacks/${stackId}/technologies`,
+    BUILD_INFO: 'build-info',
   },
 };

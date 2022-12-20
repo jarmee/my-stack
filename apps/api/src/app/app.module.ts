@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { BuildInfoModule } from './api/build-info';
 import { Stack, StacksModule } from './api/stacks';
 import { StackTechnology } from './api/stacks/technologies';
 
@@ -24,6 +25,7 @@ import { StackTechnology } from './api/stacks/technologies';
       }),
       inject: [ConfigService],
     }),
+    BuildInfoModule,
     StacksModule,
   ],
 })
