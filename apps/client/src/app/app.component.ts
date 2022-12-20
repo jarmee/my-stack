@@ -4,7 +4,7 @@ import {
   BUILD_DATE,
   GIT_BRANCH,
   GIT_COMMIT_HASH,
-} from '@my-stack/shared/build-info';
+} from '@my-stack/shared/util-build-info';
 import { LayoutComponent } from '@my-stack/shared/component-layout';
 
 @Component({

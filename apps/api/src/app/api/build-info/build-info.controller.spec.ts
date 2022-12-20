@@ -2,7 +2,7 @@ import {
   GIT_BRANCH,
   BUILD_DATE,
   GIT_COMMIT_HASH,
-} from '@my-stack/shared/build-info';
+} from '@my-stack/shared/util-build-info';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import supertest = require('supertest');
