@@ -42,6 +42,9 @@ jobs:
       - name: Generate Clients
         run: npm run api-my-stack:generate
 
+      - name: Generate Build Info
+        run: npm run build-info:write
+
       - name: Build
         uses: mansagroup/nrwl-nx-action@v3
         with:
@@ -110,6 +113,9 @@ jobs:
 
       - name: Generate Clients
         run: npm run api-my-stack:generate
+
+      - name: Generate Build Info
+        run: npm run build-info:write
 
       - name: Build
         uses: mansagroup/nrwl-nx-action@v3

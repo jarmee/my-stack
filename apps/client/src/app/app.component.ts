@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {
+  BUILD_DATE,
+  GIT_BRANCH,
+  GIT_COMMIT_HASH,
+} from '@my-stack/shared/build-info';
 import { LayoutComponent } from '@my-stack/shared/component-layout';
 
 @Component({
@@ -7,7 +12,7 @@ import { LayoutComponent } from '@my-stack/shared/component-layout';
   imports: [RouterModule, LayoutComponent],
   selector: 'mys-root',
   template: `
-    <mys-layout [title]="title">
+    <mys-layout [title]="title" [buildInfo]="buildInfo">
       <router-outlet></router-outlet>
     </mys-layout>
   `,
@@ -33,4 +38,6 @@ import { LayoutComponent } from '@my-stack/shared/component-layout';
 })
 export class AppComponent {
   title = 'My Stack';
+
+  buildInfo = `${GIT_BRANCH}@${GIT_COMMIT_HASH} / ${BUILD_DATE}`;
 }

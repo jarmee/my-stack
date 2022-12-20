@@ -3,6 +3,7 @@
 exports[`LayoutComponent should match snapshot 1`] = `
 <mys-layout
   __ngContext__={[Function Number]}
+  buildInfo=""
   title=""
   toggleSidebarNavigation="false"
 >
@@ -78,6 +79,13 @@ exports[`LayoutComponent should match snapshot 1`] = `
         class="mat-drawer-content container mx-auto pt-3"
       />
     </mat-drawer-container>
-  </main>
+  </main><footer
+    class="w-100 text-center"
+  >
+    <small
+      class="text-stone-600"
+    >
+    </small>
+  </footer>
 </mys-layout>
 `;

@@ -46,6 +46,9 @@ jobs:
       - name: Generate Clients
         run: npm run api-my-stack:generate
 
+      - name: Generate Build Info
+        run: npm run build-info:write
+
       - name: Run NX Quality Targets
         uses: mansagroup/nrwl-nx-action@v3
         with:

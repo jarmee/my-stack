@@ -13,7 +13,7 @@ function getGitBranchName() {
   };
 }
 
-const GET_GIT_COMMIT_HASH = 'git rev-parse HEAD';
+const GET_GIT_COMMIT_HASH = 'git rev-parse --short HEAD';
 
 function getGitCommitHash() {
   return () => {
