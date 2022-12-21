@@ -16,6 +16,8 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
+    component.buildInfo = `develop@bec3dace-1c3f-490a-aedf-e6e7317a41ab / 2022-12-20T21:11:45.760Z`;
+    fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -3,11 +3,12 @@
 exports[`AppComponent should match snapshot 1`] = `
 <mys-root
   __ngContext__={[Function Number]}
+  buildInfo={[Function String]}
   title={[Function String]}
 >
   <mys-layout>
     <mat-toolbar
-      class="mat-toolbar mat-primary"
+      class="mat-toolbar mat-primary mat-toolbar-single-row"
       color="primary"
     >
       <div
@@ -15,7 +16,7 @@ exports[`AppComponent should match snapshot 1`] = `
       >
         <button
           aria-label="Open Navigation"
-          class="mdc-icon-button mat-mdc-icon-button"
+          class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
           data-test-id="navigtationButton"
           mat-icon-button=""
         >
@@ -24,7 +25,8 @@ exports[`AppComponent should match snapshot 1`] = `
           />
           <mat-icon
             aria-hidden="true"
-            class="mat-icon notranslate"
+            class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+            data-mat-icon-type="font"
             role="img"
           >
             menu
@@ -43,6 +45,7 @@ exports[`AppComponent should match snapshot 1`] = `
         <span
           class="mr-4"
         >
+          My Stack
         </span>
       </div>
     </mat-toolbar>
@@ -50,11 +53,19 @@ exports[`AppComponent should match snapshot 1`] = `
       <mat-drawer-container
         class="mat-drawer-container"
       >
+        <div
+          class="mat-drawer-backdrop"
+        />
+        <div
+          aria-hidden="true"
+          class="cdk-visually-hidden cdk-focus-trap-anchor"
+        />
         <mat-drawer
           autofocus="false"
-          class="mat-drawer ng-trigger ng-trigger-transform"
+          class="mat-drawer ng-trigger ng-trigger-transform mat-drawer-over"
           data-test-id="sidebar"
           mode="over"
+          style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
           tabindex="-1"
         >
           <div
@@ -62,6 +73,10 @@ exports[`AppComponent should match snapshot 1`] = `
             class="mat-drawer-inner-container"
           />
         </mat-drawer>
+        <div
+          aria-hidden="true"
+          class="cdk-visually-hidden cdk-focus-trap-anchor"
+        />
         <mat-drawer-content
           class="mat-drawer-content container mx-auto pt-3"
         >
@@ -69,6 +84,15 @@ exports[`AppComponent should match snapshot 1`] = `
         </mat-drawer-content>
       </mat-drawer-container>
     </main>
+    <footer
+      class="w-100 text-center"
+    >
+      <small
+        class="text-stone-600"
+      >
+        develop@bec3dace-1c3f-490a-aedf-e6e7317a41ab / 2022-12-20T21:11:45.760Z
+      </small>
+    </footer>
   </mys-layout>
 </mys-root>
 `;

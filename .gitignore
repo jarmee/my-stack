@@ -56,3 +56,4 @@ libs/shared/api-administration-v2/src/lib/**
 
 /libs/shared/api-my-stack/src/lib
 !/libs/shared/api-my-stack/src/lib/.gitkeep
+build-info.ts

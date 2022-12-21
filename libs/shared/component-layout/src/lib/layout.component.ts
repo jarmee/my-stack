@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 @Component({
   selector: 'mys-layout',
   standalone: true,
@@ -34,6 +35,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         </mat-drawer-content>
       </mat-drawer-container>
     </main>
+    <footer class="w-100 text-center">
+      <small class="text-stone-600">{{ buildInfo }}</small>
+    </footer>
   `,
   styles: [
     `
@@ -52,6 +56,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class LayoutComponent {
   @Input()
   title = '';
+
+  @Input()
+  buildInfo = '';
 
   toggleSidebarNavigation = false;
 

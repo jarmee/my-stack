@@ -11,9 +11,10 @@
     "format:write": "nx format:write",
     "api-my-stack:update": "node ./scripts/workspace.mjs run update:open-api-config http://localhost:3333/api-json ./config/api-my-stack/openapi.json",
     "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack",
-    "postinstall": "npm run api-my-stack:generate",
     "docker:database": "docker build -f config/infra/database/Dockerfile . -t ghcr.io/jarmee/my-stack-db:local",
-    "docker:all": "npm run docker:database && nx run-many --target=docker --projects=client,api"
+    "docker:all": "npm run docker:database && nx run-many --target=docker --projects=client,api",
+    "build-info:write": "node ./scripts/workspace.mjs run update:build-info 'libs/shared/util-build-info/src/lib/build-info.ts'",
+    "postinstall": "npm run api-my-stack:generate && npm run build-info:write"
   },
   "private": true,
   "devDependencies": {
