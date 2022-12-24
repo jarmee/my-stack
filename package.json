@@ -11,8 +11,9 @@
     "format:write": "nx format:write",
     "api-my-stack:update": "node ./scripts/workspace.mjs run update:open-api-config http://localhost:3333/api-json ./config/api-my-stack/openapi.json",
     "api-my-stack:generate": "npx openapi-generator-cli generate --generator-key api-my-stack",
+    "docker:auth": "docker build -f config/infra/auth/Dockerfile . -t ghcr.io/jarmee/my-stack-auth:local",
     "docker:database": "docker build -f config/infra/database/Dockerfile . -t ghcr.io/jarmee/my-stack-db:local",
-    "docker:all": "npm run docker:database && nx run-many --target=docker --projects=client,api",
+    "docker:all": "npm run docker:auth && npm run docker:database && nx run-many --target=docker --projects=client,api",
     "build-info:write": "node ./scripts/workspace.mjs run update:build-info 'libs/shared/util-build-info/src/lib/build-info.ts'",
     "postinstall": "npm run api-my-stack:generate && npm run build-info:write"
   },
@@ -79,6 +80,7 @@
     "@nestjs/swagger": "^6.1.4",
     "@nestjs/typeorm": "^9.0.1",
     "@openapitools/openapi-generator-cli": "^2.5.2",
+    "angular-oauth2-oidc": "^15.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "pg": "^8.8.0",

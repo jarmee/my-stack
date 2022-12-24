@@ -1,7 +1,7 @@
 - name: creates directory for docker-compose files
   file:
-    path: "{{ ansible_env.HOME }}/auxiliary"
+    path: '{{ ansible_env.HOME }}/auxiliary'
     state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ group }}"
+    owner: '{{ ansible_user_id }}'
+    group: '{{ group }}'
     mode: 0700

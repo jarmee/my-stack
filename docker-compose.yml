@@ -1,15 +1,30 @@
 version: '3'
 services:
+  my-stack-auth:
+    image: ghcr.io/jarmee/my-stack-auth:${MY_STACK_VERSION:-local}
+    container_name: my-stack-auth
+    restart: on-failure:5
+    ports:
+      - '${AUTH_PORT:-8081}:8080'
+    environment:
+      KEYCLOAK_ADMIN: 'admin'
+      KEYCLOAK_ADMIN_PASSWORD: '${AUTH_PASS:-secret}'
+    command:
+      - start-dev
+      - --import-realm
+    volumes:
+      - ./config/infra/auth/:/opt/keycloak/data/import/
+
   my-stack-db:
     image: ghcr.io/jarmee/my-stack-db:${MY_STACK_VERSION:-local}
     container_name: my-stack-db
     restart: on-failure:5
     ports:
-      - "${DB_PORT:-5432}:5432"
+      - '${DB_PORT:-5432}:5432'
     environment:
-      POSTGRES_DB: "mystack"
-      POSTGRES_USER: "${DB_USER:-root}"
-      POSTGRES_PASSWORD: "${DB_PASS:-secret}"
+      POSTGRES_DB: 'mystack'
+      POSTGRES_USER: '${DB_USER:-root}'
+      POSTGRES_PASSWORD: '${DB_PASS:-secret}'
     volumes:
       - my-stack-data:/data/db
 
@@ -18,19 +33,19 @@ services:
     container_name: my-stack-client
     restart: on-failure:5
     ports:
-      - "${CLIENT_PORT:-8080}:80"
+      - '${CLIENT_PORT:-8080}:80'
 
   my-stack-api:
     image: ghcr.io/jarmee/my-stack-api:${MY_STACK_VERSION:-local}
     container_name: my-stack-api
     restart: on-failure:5
     ports:
-      - "${API_PORT:-3333}:3333"
+      - '${API_PORT:-3333}:3333'
     environment:
-      DB_HOST: "my-stack-db"
-      DB_PORT: "${DB_PORT:-5432}"
-      DB_USER: "${DB_USER:-root}"
-      DB_PASS: "${DB_PASS:-secret}"
+      DB_HOST: 'my-stack-db'
+      DB_PORT: '${DB_PORT:-5432}'
+      DB_USER: '${DB_USER:-root}'
+      DB_PASS: '${DB_PASS:-secret}'
 
 volumes:
   my-stack-data:

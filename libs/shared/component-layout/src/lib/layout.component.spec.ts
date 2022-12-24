@@ -7,6 +7,7 @@ import { LayoutComponent } from './layout.component';
 const CssSelectors = {
   ToggleNavigationButton: By.css('[data-test-id="navigtationButton"]'),
   Sidebar: By.css('[data-test-id="sidebar"]'),
+  LogoutButton: By.css('[data-test-id="logoutButton"]'),
 };
 
 describe('LayoutComponent', () => {
@@ -58,6 +59,17 @@ describe('LayoutComponent', () => {
         fixture.debugElement.query(CssSelectors.Sidebar).componentInstance
           .opened
       ).toBe(false);
+    });
+  });
+
+  describe('onLogout', () => {
+    it('should emit an logout event', () => {
+      component.logout.emit = jest.fn();
+      fixture.debugElement
+        .query(CssSelectors.LogoutButton)
+        .triggerEventHandler('click', {});
+
+      expect(component.logout.emit).toHaveBeenCalled();
     });
   });
 });

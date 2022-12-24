@@ -7,13 +7,13 @@ services:
     networks:
       - traefik-proxy
     environment:
-      POSTGRES_DB: "mystack"
-      POSTGRES_USER: "${DB_USER}"
-      POSTGRES_PASSWORD: "${DB_PASS}"
+      POSTGRES_DB: 'mystack'
+      POSTGRES_USER: '${DB_USER}'
+      POSTGRES_PASSWORD: '${DB_PASS}'
     volumes:
       - ./db-data:/data/db
     labels:
-      - "traefik.enable=false"
+      - 'traefik.enable=false'
 
   my-stack-client:
     image: ghcr.io/jarmee/my-stack-client:${MY_STACK_VERSION}
@@ -22,7 +22,7 @@ services:
     networks:
       - traefik-proxy
     labels:
-      - "traefik.http.routers.my-stack-client-${MY_STACK_DEPLOYMENT}.rule=Host(`${MY_STACK_PREFIX}mystack.letz.dev`)"
+      - 'traefik.http.routers.my-stack-client-${MY_STACK_DEPLOYMENT}.rule=Host(`${MY_STACK_PREFIX}mystack.letz.dev`)'
 
   my-stack-api:
     image: ghcr.io/jarmee/my-stack-api:${MY_STACK_VERSION}
@@ -31,12 +31,12 @@ services:
     networks:
       - traefik-proxy
     environment:
-      DB_HOST: "my-stack-db"
-      DB_PORT: "${DB_PORT}"
-      DB_USER: "${DB_USER}"
-      DB_PASS: "${DB_PASS}"
+      DB_HOST: 'my-stack-db'
+      DB_PORT: '${DB_PORT}'
+      DB_USER: '${DB_USER}'
+      DB_PASS: '${DB_PASS}'
     labels:
-      - "traefik.http.routers.my-stack-api-${MY_STACK_DEPLOYMENT}.rule=Host(`${MY_STACK_PREFIX}mystack.letz.dev`) && PathPrefix(`/api`)"
+      - 'traefik.http.routers.my-stack-api-${MY_STACK_DEPLOYMENT}.rule=Host(`${MY_STACK_PREFIX}mystack.letz.dev`) && PathPrefix(`/api`)'
 
 networks:
   traefik-proxy:

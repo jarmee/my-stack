@@ -1,31 +1,31 @@
 - name: creates directory for docker-compose files
   file:
-    path: "{{ ansible_env.HOME }}/app/{{ deployment.key }}"
+    path: '{{ ansible_env.HOME }}/app/{{ deployment.key }}'
     state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ group }}"
+    owner: '{{ ansible_user_id }}'
+    group: '{{ group }}'
     mode: 0700
 
 - name: copies docker-compose.yml to stack folder
   copy:
-    src: "files/docker/app/docker-compose.yml"
-    dest: "{{ ansible_env.HOME }}/app/{{ deployment.key }}/docker-compose.yml"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ group }}"
+    src: 'files/docker/app/docker-compose.yml'
+    dest: '{{ ansible_env.HOME }}/app/{{ deployment.key }}/docker-compose.yml'
+    owner: '{{ ansible_user_id }}'
+    group: '{{ group }}'
     mode: 0600
   register: compose
 
 - name: templates .env to stack folder
   template:
-    src: "files/docker/app/.env.j2"
-    dest: "{{ ansible_env.HOME }}/app/{{ deployment.key }}/.env"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ group }}"
+    src: 'files/docker/app/.env.j2'
+    dest: '{{ ansible_env.HOME }}/app/{{ deployment.key }}/.env'
+    owner: '{{ ansible_user_id }}'
+    group: '{{ group }}'
     mode: 0600
   register: env
 
 - name: start containers
-  command: "docker compose up -d --remove-orphans"
+  command: 'docker compose up -d --remove-orphans'
   args:
-    chdir: "{{ ansible_env.HOME }}/app/{{ deployment.key }}"
+    chdir: '{{ ansible_env.HOME }}/app/{{ deployment.key }}'
   when: env.changed or compose.changed

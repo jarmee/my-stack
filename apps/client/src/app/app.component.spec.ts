@@ -1,16 +1,29 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { OAuthService, provideOAuthClient } from 'angular-oauth2-oidc';
 
 import { AppComponent } from './app.component';
+
+const CssSelectors = {
+  Layout: By.css('[data-test-id="layout"]'),
+};
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
+  let authService: OAuthService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent, NoopAnimationsModule],
+      providers: [provideHttpClient(), provideOAuthClient()],
     }).compileComponents();
+  });
+
+  beforeEach(() => {
+    authService = TestBed.inject(OAuthService);
   });
 
   beforeEach(() => {
@@ -26,5 +39,16 @@ describe('AppComponent', () => {
 
   it('should match snapshot', () => {
     expect(fixture).toMatchSnapshot();
+  });
+
+  describe('onLogout', () => {
+    it('should logout the user', () => {
+      authService.logOut = jest.fn();
+      fixture.debugElement
+        .query(CssSelectors.Layout)
+        .triggerEventHandler('logout', {});
+
+      expect(authService.logOut).toHaveBeenCalled();
+    });
   });
 });
