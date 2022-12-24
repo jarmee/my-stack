@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from '@my-stack/shared/component-layout';
@@ -13,13 +14,15 @@ import { environment } from '../environments/environment';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, LayoutComponent],
+  imports: [RouterModule, LayoutComponent, NgIf],
   selector: 'mys-root',
   template: `
     <mys-layout
+      *ngIf="isLoggedIn"
       data-test-id="layout"
       [title]="title"
       [buildInfo]="buildInfo"
+      [userName]="userName"
       (logout)="onLogout()"
     >
       <router-outlet></router-outlet>
@@ -50,6 +53,16 @@ export class AppComponent {
 
   buildInfo = `${GIT_BRANCH}@${GIT_COMMIT_HASH} / ${BUILD_DATE}`;
 
+  get userName(): string | null {
+    const claims = this.oauthService.getIdentityClaims();
+    if (!claims) return null;
+    return claims['given_name'];
+  }
+
+  get isLoggedIn(): boolean {
+    return !!this.userName;
+  }
+
   constructor(private oauthService: OAuthService) {
     this.oauthService.configure(environment.auth);
     this.oauthService.loadDiscoveryDocumentAndLogin();
@@ -57,12 +70,6 @@ export class AppComponent {
     this.oauthService.events
       .pipe(filter((e) => e.type === 'token_received'))
       .subscribe((_) => this.oauthService.loadUserProfile());
-  }
-
-  get userName(): string | null {
-    const claims = this.oauthService.getIdentityClaims();
-    if (!claims) return null;
-    return claims['given_name'];
   }
 
   onLogout() {

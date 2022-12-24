@@ -54,34 +54,41 @@ exports[`AppComponent should match snapshot 1`] = `
             My Stack
           </span>
         </div>
-        <button
-          aria-label="Logout User"
-          class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
-          data-test-id="logoutButton"
-          mat-icon-button=""
+        <div
+          class="flex items-center"
         >
-          <span
-            class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
-          />
-          <mat-icon
-            aria-hidden="true"
-            class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-            data-mat-icon-type="font"
-            role="img"
+          <small>
+            Simple User
+          </small>
+          <button
+            aria-label="Logout User"
+            class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
+            data-test-id="logoutButton"
+            mat-icon-button=""
           >
-            logout
-          </mat-icon>
-          <span
-            class="mat-mdc-focus-indicator"
-          />
-          <span
-            class="mat-ripple mat-mdc-button-ripple"
-            matripple=""
-          />
-          <span
-            class="mat-mdc-button-touch-target"
-          />
-        </button>
+            <span
+              class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+            />
+            <mat-icon
+              aria-hidden="true"
+              class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+              data-mat-icon-type="font"
+              role="img"
+            >
+              logout
+            </mat-icon>
+            <span
+              class="mat-mdc-focus-indicator"
+            />
+            <span
+              class="mat-ripple mat-mdc-button-ripple"
+              matripple=""
+            />
+            <span
+              class="mat-mdc-button-touch-target"
+            />
+          </button>
+        </div>
       </div>
     </mat-toolbar>
     <mat-drawer-container

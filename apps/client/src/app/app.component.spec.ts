@@ -24,6 +24,9 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     authService = TestBed.inject(OAuthService);
+    authService.getIdentityClaims = jest.fn().mockReturnValue({
+      given_name: 'Simple User',
+    });
   });
 
   beforeEach(() => {

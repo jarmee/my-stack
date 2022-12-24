@@ -3,6 +3,7 @@
 exports[`StacksOverviewComponent should match snapshot 1`] = `
 <mys-stacks-overview
   __ngContext__={[Function Number]}
+  _service={[Function StacksService]}
   stacks$={[Function Observable]}
 >
   <div

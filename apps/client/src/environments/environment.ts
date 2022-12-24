@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:3333',
   auth: {
     issuer: 'http://localhost:8081/realms/my-stack',
     redirectUri: window.location.origin,

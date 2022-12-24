@@ -31,7 +31,7 @@ To be able to run **My Stack** on your local machine please make sure that you h
 - _node v16.16.0_
 - _npm 8.19.2_
 
-### Getting Started
+### Getting Started 🚀
 
 1. Clone the repository by running `git clone https://github.com/jarmee/my-stack.git`
 2. Open the root folder of this project and run `npm install`

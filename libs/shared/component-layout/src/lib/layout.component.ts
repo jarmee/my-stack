@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -16,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatIconModule,
     MatListModule,
+    NgIf,
   ],
   template: `
     <mat-toolbar color="primary">
@@ -31,14 +33,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
           </button>
           <span class="mr-4">{{ title }}</span>
         </div>
-        <button
-          mat-icon-button
-          data-test-id="logoutButton"
-          aria-label="Logout User"
-          (click)="onLogout()"
-        >
-          <mat-icon>logout</mat-icon>
-        </button>
+        <div class="flex items-center">
+          <small>{{ userName }}</small>
+          <button
+            mat-icon-button
+            data-test-id="logoutButton"
+            aria-label="Logout User"
+            (click)="onLogout()"
+          >
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
       </div>
     </mat-toolbar>
     <mat-drawer-container>
@@ -93,6 +98,9 @@ export class LayoutComponent {
 
   @Input()
   buildInfo = '';
+
+  @Input()
+  userName: string | null = '';
 
   @Output()
   logout = new EventEmitter<void>();
