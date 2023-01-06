@@ -18,11 +18,15 @@ import { StackTechnology } from './api/stacks/technologies';
     ConfigModule.forRoot({
       envFilePath: ['.env.development.local', '.env.development'],
     }),
-    KeycloakConnectModule.register({
-      authServerUrl: 'http://localhost:8081',
-      realm: 'my-stack',
-      clientId: 'api',
-      secret: 'Fhn3Me07pFQmT2y7pD401SXDE8qAObzf',
+    KeycloakConnectModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: (config: ConfigService) => ({
+        authServerUrl: config.get('AUTH_SERVER_URL') ?? 'http://localhost:8081',
+        realm: config.get('AUTH_REALM') ?? 'my-stack',
+        clientId: config.get('AUTH_CLIENT_ID') ?? 'api',
+        secret: config.get('AUTH_SECRET'),
+      }),
+      inject: [ConfigService],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
