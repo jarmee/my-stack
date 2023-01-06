@@ -13,6 +13,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
+  app.enableCors({
+    origin: [
+      'http://localhost:4200',
+      'https://develop.mystack.letz.dev/',
+      'https://mystack.letz.dev/',
+    ],
+  });
 
   const config = new DocumentBuilder()
     .setTitle('My Stack')

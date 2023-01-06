@@ -4,95 +4,137 @@ exports[`AppComponent should match snapshot 1`] = `
 <mys-root
   __ngContext__={[Function Number]}
   buildInfo={[Function String]}
+  oauthService={[Function OAuthService]}
   title={[Function String]}
 >
-  <mys-layout>
+  <mys-layout
+    data-test-id="layout"
+  >
     <mat-toolbar
       class="mat-toolbar mat-primary mat-toolbar-single-row"
       color="primary"
     >
       <div
-        class="container mx-auto flex items-center"
+        class="container mx-auto flex items-center justify-between"
       >
-        <button
-          aria-label="Open Navigation"
-          class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
-          data-test-id="navigtationButton"
-          mat-icon-button=""
+        <div
+          class="flex items-center"
         >
-          <span
-            class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
-          />
-          <mat-icon
-            aria-hidden="true"
-            class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
-            data-mat-icon-type="font"
-            role="img"
+          <button
+            aria-label="Open Navigation"
+            class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
+            data-test-id="navigtationButton"
+            mat-icon-button=""
           >
-            menu
-          </mat-icon>
+            <span
+              class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+            />
+            <mat-icon
+              aria-hidden="true"
+              class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+              data-mat-icon-type="font"
+              role="img"
+            >
+              menu
+            </mat-icon>
+            <span
+              class="mat-mdc-focus-indicator"
+            />
+            <span
+              class="mat-ripple mat-mdc-button-ripple"
+              matripple=""
+            />
+            <span
+              class="mat-mdc-button-touch-target"
+            />
+          </button>
           <span
-            class="mat-mdc-focus-indicator"
-          />
-          <span
-            class="mat-ripple mat-mdc-button-ripple"
-            matripple=""
-          />
-          <span
-            class="mat-mdc-button-touch-target"
-          />
-        </button>
-        <span
-          class="mr-4"
+            class="mr-4"
+          >
+            My Stack
+          </span>
+        </div>
+        <div
+          class="flex items-center"
         >
-          My Stack
-        </span>
+          <small>
+            Simple User
+          </small>
+          <button
+            aria-label="Logout User"
+            class="mdc-icon-button mat-mdc-icon-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
+            data-test-id="logoutButton"
+            mat-icon-button=""
+          >
+            <span
+              class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+            />
+            <mat-icon
+              aria-hidden="true"
+              class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+              data-mat-icon-type="font"
+              role="img"
+            >
+              logout
+            </mat-icon>
+            <span
+              class="mat-mdc-focus-indicator"
+            />
+            <span
+              class="mat-ripple mat-mdc-button-ripple"
+              matripple=""
+            />
+            <span
+              class="mat-mdc-button-touch-target"
+            />
+          </button>
+        </div>
       </div>
     </mat-toolbar>
-    <main>
-      <mat-drawer-container
-        class="mat-drawer-container"
-      >
-        <div
-          class="mat-drawer-backdrop"
-        />
-        <div
-          aria-hidden="true"
-          class="cdk-visually-hidden cdk-focus-trap-anchor"
-        />
-        <mat-drawer
-          autofocus="false"
-          class="mat-drawer ng-trigger ng-trigger-transform mat-drawer-over"
-          data-test-id="sidebar"
-          mode="over"
-          style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
-          tabindex="-1"
-        >
-          <div
-            cdkscrollable=""
-            class="mat-drawer-inner-container"
-          />
-        </mat-drawer>
-        <div
-          aria-hidden="true"
-          class="cdk-visually-hidden cdk-focus-trap-anchor"
-        />
-        <mat-drawer-content
-          class="mat-drawer-content container mx-auto pt-3"
-        >
-          <router-outlet />
-        </mat-drawer-content>
-      </mat-drawer-container>
-    </main>
-    <footer
-      class="w-100 text-center"
+    <mat-drawer-container
+      class="mat-drawer-container"
     >
-      <small
-        class="text-stone-600"
+      <div
+        class="mat-drawer-backdrop"
+      />
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-drawer
+        autofocus="false"
+        class="mat-drawer flex ng-trigger ng-trigger-transform mat-drawer-over"
+        data-test-id="sidebar"
+        mode="over"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
       >
-        develop@bec3dace-1c3f-490a-aedf-e6e7317a41ab / 2022-12-20T21:11:45.760Z
-      </small>
-    </footer>
+        <div
+          cdkscrollable=""
+          class="mat-drawer-inner-container"
+        />
+      </mat-drawer>
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-drawer-content
+        class="mat-drawer-content container mx-auto pt-3"
+      >
+        <main>
+          <router-outlet />
+        </main>
+        <footer
+          class="w-100 text-center"
+        >
+          <small
+            class="text-stone-600"
+          >
+            develop@bec3dace-1c3f-490a-aedf-e6e7317a41ab / 2022-12-20T21:11:45.760Z
+          </small>
+        </footer>
+      </mat-drawer-content>
+    </mat-drawer-container>
   </mys-layout>
 </mys-root>
 `;
