@@ -10,6 +10,8 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+[![deploy](https://github.com/jarmee/my-stack/actions/workflows/deploy.yml/badge.svg)](https://github.com/jarmee/my-stack/actions/workflows/deploy.yml)[![quality](https://github.com/jarmee/my-stack/actions/workflows/quality.yml/badge.svg)](https://github.com/jarmee/my-stack/actions/workflows/quality.yml)
+
 **My Stack** gives you the possibility to share your technical skills with the world in an easy manner.
 
 ## Demo 👾
