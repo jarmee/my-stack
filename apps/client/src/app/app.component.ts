@@ -65,6 +65,7 @@ export class AppComponent {
 
   constructor(private oauthService: OAuthService) {
     this.oauthService.configure(environment.auth);
+    this.oauthService.setupAutomaticSilentRefresh();
     this.oauthService.loadDiscoveryDocumentAndLogin();
 
     this.oauthService.events
