@@ -10,11 +10,8 @@ exports[`StacksOverviewComponent should match snapshot 1`] = `
     class="px-4"
   >
     <div
-      class="flex justify-between items-end"
+      class="flex items-end"
     >
-      <h3>
-        Stacks
-      </h3>
       <button
         class="mb-3 mdc-button mat-mdc-button"
         mat-button=""
@@ -33,9 +30,7 @@ exports[`StacksOverviewComponent should match snapshot 1`] = `
         </mat-icon>
         <span
           class="mdc-button__label"
-        >
-          Create 
-        </span>
+        />
         <span
           class="mat-mdc-focus-indicator"
         />
@@ -47,6 +42,9 @@ exports[`StacksOverviewComponent should match snapshot 1`] = `
           class="mat-mdc-button-touch-target"
         />
       </button>
+      <h3>
+        Stacks
+      </h3>
     </div>
     <mat-divider
       class="mat-divider"
