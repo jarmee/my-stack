@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StacksOverviewComponent should match snapshot 1`] = `
-<mys-stacks-overview
+<ng-component
   __ngContext__={[Function Number]}
   _service={[Function StacksService]}
   stacks$={[Function Observable]}
@@ -9,9 +9,45 @@ exports[`StacksOverviewComponent should match snapshot 1`] = `
   <div
     class="px-4"
   >
-    <h1>
-      Stacks
-    </h1>
+    <div
+      class="flex justify-between items-end"
+    >
+      <h3>
+        Stacks
+      </h3>
+      <button
+        class="mb-3 mdc-button mat-mdc-button"
+        mat-button=""
+        routerlink="create"
+        tabindex="0"
+      >
+        <span
+          class="mat-mdc-button-persistent-ripple"
+        />
+        <mat-icon
+          aria-hidden="true"
+          class="mat-icon notranslate"
+          role="img"
+        >
+          add
+        </mat-icon>
+        <span
+          class="mdc-button__label"
+        >
+          Create 
+        </span>
+        <span
+          class="mat-mdc-focus-indicator"
+        />
+        <span
+          class="mat-ripple mat-mdc-button-ripple"
+          matripple=""
+        />
+        <span
+          class="mat-mdc-button-touch-target"
+        />
+      </button>
+    </div>
     <mat-divider
       class="mat-divider"
       role="separator"
@@ -21,5 +57,5 @@ exports[`StacksOverviewComponent should match snapshot 1`] = `
     >
     </div>
   </div>
-</mys-stacks-overview>
+</ng-component>
 `;

@@ -1,6 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ApiModule, StacksService } from '@my-stack/shared/api-my-stack';
 import { of } from 'rxjs';
 
@@ -13,7 +14,7 @@ describe('StacksOverviewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StacksOverviewComponent],
+      imports: [StacksOverviewComponent, RouterTestingModule],
       providers: [provideHttpClient(), importProvidersFrom(ApiModule)],
     }).compileComponents();
   });
