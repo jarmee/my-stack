@@ -21,11 +21,11 @@ import { StackComponent } from './stack.component';
   ],
   template: `
     <div class="px-4">
-      <div class="flex justify-between items-end">
-        <h3>Stacks</h3>
+      <div class="flex items-end">
         <button mat-button routerLink="create" class="mb-3">
-          <mat-icon>add</mat-icon>Create
+          <mat-icon>add</mat-icon>
         </button>
+        <h3>Stacks</h3>
       </div>
       <mat-divider></mat-divider>
       <div
