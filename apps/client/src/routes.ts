@@ -8,7 +8,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'stacks',
-    loadComponent: () =>
-      import('@my-stack/feature-stacks').then((c) => c.StacksComponent),
+    loadChildren: () =>
+      import('@my-stack/feature-stacks').then((m) => m.ROUTES),
   },
 ];
