@@ -31,7 +31,7 @@ import { StacksStore } from '../+state/stacks.store';
   template: `<div class="px-4">
     <div class="flex items-end">
       <button mat-button routerLink="/" class="mb-3">
-        <mat-icon>arrow_back</mat-icon>Create Stack
+        <mat-icon>arrow_back</mat-icon>Back
       </button>
     </div>
     <mat-divider></mat-divider>

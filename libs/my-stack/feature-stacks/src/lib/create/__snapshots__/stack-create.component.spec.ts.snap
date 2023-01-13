@@ -34,7 +34,7 @@ exports[`StackCreateComponent should match the snapshot 1`] = `
         <span
           class="mdc-button__label"
         >
-          Create Stack 
+          Back 
         </span>
         <span
           class="mat-mdc-focus-indicator"

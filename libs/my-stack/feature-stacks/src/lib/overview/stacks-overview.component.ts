@@ -22,9 +22,10 @@ import { StackComponent } from './stack.component';
   ],
   template: `
     <div class="px-4">
-      <div class="flex items-end">
+      <div class="flex items-end justify-between">
+        <h2>Stacks</h2>
         <button mat-button routerLink="create" class="mb-3">
-          <mat-icon>add</mat-icon>Stack
+          <mat-icon>add</mat-icon>Create
         </button>
       </div>
       <mat-divider></mat-divider>
