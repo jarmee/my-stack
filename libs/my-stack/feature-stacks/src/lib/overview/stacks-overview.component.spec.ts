@@ -12,6 +12,7 @@ import { StacksOverviewComponent } from './stacks-overview.component';
 
 const CSS_SELECTORS = {
   STACK: By.css('mys-stack'),
+  NO_DATA: By.css('[data-test-id="no-data"]'),
 };
 
 describe('StacksOverviewComponent', () => {
@@ -117,6 +118,17 @@ describe('StacksOverviewComponent', () => {
       randomStackElement.triggerEventHandler('delete', expected);
 
       expect(store.remove).toHaveBeenCalledWith(expected);
+    });
+  });
+
+  describe('no data', () => {
+    it('should display the no data section when there is no stack', () => {
+      store.setState({
+        stacks: [],
+      });
+      fixture.detectChanges();
+
+      expect(fixture.debugElement.query(CSS_SELECTORS.NO_DATA)).toBeTruthy();
     });
   });
 });

@@ -20,6 +20,13 @@ const initialState: StacksState = {
 })
 export class StacksStore extends ComponentStore<StacksState> {
   readonly stacks$: Observable<Stack[]> = this.select((state) => state.stacks);
+  readonly hasData$: Observable<boolean> = this.select(
+    (state) => state.stacks.length > 0
+  );
+  readonly viewModel$ = this.select({
+    stacks: this.stacks$,
+    hasData: this.hasData$,
+  });
 
   constructor(private _service: StacksService) {
     super(initialState);
