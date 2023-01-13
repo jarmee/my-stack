@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
-import { Stack, StacksService } from '@my-stack/shared/api-my-stack';
+import { Stack } from '@my-stack/shared/api-my-stack';
 import { Observable } from 'rxjs';
 
+import { StacksStore } from '../+state/stacks.store';
 import { StackComponent } from './stack.component';
 
 @Component({
@@ -23,9 +24,8 @@ import { StackComponent } from './stack.component';
     <div class="px-4">
       <div class="flex items-end">
         <button mat-button routerLink="create" class="mb-3">
-          <mat-icon>add</mat-icon>
+          <mat-icon>add</mat-icon>Stack
         </button>
-        <h3>Stacks</h3>
       </div>
       <mat-divider></mat-divider>
       <div
@@ -34,6 +34,7 @@ import { StackComponent } from './stack.component';
         <mys-stack
           *ngFor="let stack of stacks$ | async; trackBy: trackById"
           [stack]="stack"
+          (delete)="onDelete($event)"
         >
         </mys-stack>
       </div>
@@ -41,10 +42,18 @@ import { StackComponent } from './stack.component';
   `,
   styles: [],
 })
-export class StacksOverviewComponent {
-  stacks$: Observable<Array<Stack>> = this._service.getAllStacks();
+export class StacksOverviewComponent implements OnInit {
+  readonly stacks$: Observable<Array<Stack>> = this._store.stacks$;
 
-  constructor(private _service: StacksService) {}
+  constructor(private _store: StacksStore) {}
+
+  ngOnInit(): void {
+    this._store.loadAll();
+  }
+
+  onDelete(stack: Stack) {
+    this._store.remove(stack);
+  }
 
   trackById(index: number, stack: Stack) {
     return stack.id;

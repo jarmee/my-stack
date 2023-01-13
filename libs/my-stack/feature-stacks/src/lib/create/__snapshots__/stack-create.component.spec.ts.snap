@@ -5,7 +5,7 @@ exports[`StackCreateComponent should match the snapshot 1`] = `
   __ngContext__={[Function Number]}
   _formBuilder={[Function FormBuilder]}
   _router={[Function Router]}
-  _service={[Function StacksService]}
+  _store={[Function StacksStore]}
   formGroup={[Function FormGroup]}
 >
   <div
@@ -33,7 +33,9 @@ exports[`StackCreateComponent should match the snapshot 1`] = `
         </mat-icon>
         <span
           class="mdc-button__label"
-        />
+        >
+          Create Stack 
+        </span>
         <span
           class="mat-mdc-focus-indicator"
         />
@@ -45,9 +47,6 @@ exports[`StackCreateComponent should match the snapshot 1`] = `
           class="mat-mdc-button-touch-target"
         />
       </button>
-      <h3>
-        Create Stack
-      </h3>
     </div>
     <mat-divider
       aria-orientation="horizontal"
