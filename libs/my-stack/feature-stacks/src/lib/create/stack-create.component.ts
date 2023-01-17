@@ -12,8 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
-import { CreateStackDto, StacksService } from '@my-stack/shared/api-my-stack';
-import { firstValueFrom } from 'rxjs';
+import { CreateStackDto } from '@my-stack/shared/api-my-stack';
+
+import { StacksStore } from '../+state/stacks.store';
 
 @Component({
   standalone: true,
@@ -30,9 +31,8 @@ import { firstValueFrom } from 'rxjs';
   template: `<div class="px-4">
     <div class="flex items-end">
       <button mat-button routerLink="/" class="mb-3">
-        <mat-icon>arrow_back</mat-icon>
+        <mat-icon>arrow_back</mat-icon>Back
       </button>
-      <h3>Create Stack</h3>
     </div>
     <mat-divider></mat-divider>
     <div class="flex justify-center">
@@ -69,7 +69,7 @@ export class StackCreateComponent {
   formGroup: FormGroup;
 
   constructor(
-    private _service: StacksService,
+    private _store: StacksStore,
     private _formBuilder: FormBuilder,
     private _router: Router
   ) {
@@ -78,9 +78,9 @@ export class StackCreateComponent {
     });
   }
 
-  async onSubmit(isValid: boolean, stack: CreateStackDto) {
+  onSubmit(isValid: boolean, stack: CreateStackDto) {
     if (isValid) {
-      await firstValueFrom(this._service.createStack(stack));
+      this._store.add(stack);
       this._router.navigate(['/']);
     }
   }

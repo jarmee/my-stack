@@ -3,17 +3,48 @@
 exports[`StackComponent should match snapshot 1`] = `
 <mys-stack
   __ngContext__={[Function Number]}
-  stack="null"
+  delete={[Function EventEmitter_]}
+  stack={[Function Object]}
 >
   <div
     class="flex flex-col items-center justify-items-center cursor-pointer"
   >
     <mat-card
       class="mat-mdc-card mdc-card h-[144px] w-[144px]"
-    />
+    >
+      <button
+        class="mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base"
+        data-test-id="delete-button"
+        mat-icon-button=""
+        type="button"
+      >
+        <span
+          class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"
+        />
+        <mat-icon
+          aria-hidden="true"
+          class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+          data-mat-icon-type="font"
+          role="img"
+        >
+          delete
+        </mat-icon>
+        <span
+          class="mat-mdc-focus-indicator"
+        />
+        <span
+          class="mat-ripple mat-mdc-button-ripple"
+          matripple=""
+        />
+        <span
+          class="mat-mdc-button-touch-target"
+        />
+      </button>
+    </mat-card>
     <span
       class="mt-2"
     >
+      test-0
     </span>
   </div>
 </mys-stack>

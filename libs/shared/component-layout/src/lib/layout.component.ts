@@ -90,6 +90,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         }
       }
     `,
+    `
+      main {
+        min-height: calc(100% - 64px);
+      }
+    `,
+    `
+      @media (max-width: 599px) {
+        main {
+          min-height: calc(100% - 56px);
+        }
+      }
+    `,
   ],
 })
 export class LayoutComponent {

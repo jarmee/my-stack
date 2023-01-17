@@ -6,13 +6,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { faker } from '@faker-js/faker';
-import {
-  ApiModule,
-  CreateStackDto,
-  StacksService,
-} from '@my-stack/shared/api-my-stack';
-import { of } from 'rxjs';
+import { ApiModule, CreateStackDto } from '@my-stack/shared/api-my-stack';
 
+import { StacksStore } from '../+state/stacks.store';
 import { StackCreateComponent } from './stack-create.component';
 
 const CSS_SELECTORS = {
@@ -41,8 +37,8 @@ function submitFormFactory(fixture: ComponentFixture<StackCreateComponent>) {
 describe('StackCreateComponent', () => {
   let component: StackCreateComponent;
   let fixture: ComponentFixture<StackCreateComponent>;
-  let service: StacksService;
   let router: Router;
+  let store: StacksStore;
   let setTitleFormField: (value: string) => void;
   let submitForm: () => void;
 
@@ -56,8 +52,8 @@ describe('StackCreateComponent', () => {
       providers: [provideHttpClient(), importProvidersFrom(ApiModule)],
     }).compileComponents();
 
-    service = TestBed.inject(StacksService);
     router = TestBed.inject(Router);
+    store = TestBed.inject(StacksStore);
 
     fixture = TestBed.createComponent(StackCreateComponent);
     component = fixture.componentInstance;
@@ -77,15 +73,16 @@ describe('StackCreateComponent', () => {
 
   describe('form', () => {
     beforeEach(() => {
-      service.createStack = jest.fn().mockReturnValue(of(null));
+      jest.spyOn(store, 'add');
       router.navigate = jest.fn();
     });
 
     it('should do nothing when the user clicks the submit button and the form is invalid', () => {
       submitForm();
 
-      expect(service.createStack).not.toHaveBeenCalled();
+      expect(store.add).not.toHaveBeenCalled();
     });
+
     it('should create a new stack when the user clicks the submit button and the form is valid', () => {
       const expected: CreateStackDto = {
         title: faker.random.words(),
@@ -94,7 +91,7 @@ describe('StackCreateComponent', () => {
       setTitleFormField(expected.title);
       submitForm();
 
-      expect(service.createStack).toHaveBeenCalledWith(expected);
+      expect(store.add).toHaveBeenCalledWith(expected);
     });
   });
 });

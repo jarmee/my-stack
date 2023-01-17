@@ -1,16 +1,25 @@
 import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ApiModule, StacksService } from '@my-stack/shared/api-my-stack';
+import { faker } from '@faker-js/faker';
+import { ApiModule, Stack, StacksService } from '@my-stack/shared/api-my-stack';
 import { of } from 'rxjs';
 
+import { StacksStore } from '../+state/stacks.store';
 import { StacksOverviewComponent } from './stacks-overview.component';
+
+const CSS_SELECTORS = {
+  STACK: By.css('mys-stack'),
+  NO_DATA: By.css('[data-test-id="no-data"]'),
+};
 
 describe('StacksOverviewComponent', () => {
   let fixture: ComponentFixture<StacksOverviewComponent>;
   let component: StacksOverviewComponent;
   let service: StacksService;
+  let store: StacksStore;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,6 +30,7 @@ describe('StacksOverviewComponent', () => {
 
   beforeEach(() => {
     service = TestBed.inject(StacksService);
+    store = TestBed.inject(StacksStore);
     service.getAllStacks = jest.fn().mockReturnValue(
       of([
         {
@@ -80,6 +90,7 @@ describe('StacksOverviewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StacksOverviewComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -88,5 +99,36 @@ describe('StacksOverviewComponent', () => {
 
   it('should match snapshot', () => {
     expect(fixture).toMatchSnapshot();
+  });
+
+  describe('delete', () => {
+    it('should emit a delete event for the stack when the user clicks the delete button of a stack', () => {
+      jest.spyOn(store, 'remove');
+      const expected: Stack = {
+        id: faker.datatype.number(),
+        title: 'some-stack',
+        technologies: [],
+      };
+
+      const stackElements = fixture.debugElement.queryAll(CSS_SELECTORS.STACK);
+      const randomStackElement =
+        stackElements[
+          faker.datatype.number({ min: 0, max: stackElements.length - 1 })
+        ];
+      randomStackElement.triggerEventHandler('delete', expected);
+
+      expect(store.remove).toHaveBeenCalledWith(expected);
+    });
+  });
+
+  describe('no data', () => {
+    it('should display the no data section when there is no stack', () => {
+      store.setState({
+        stacks: [],
+      });
+      fixture.detectChanges();
+
+      expect(fixture.debugElement.query(CSS_SELECTORS.NO_DATA)).toBeTruthy();
+    });
   });
 });
