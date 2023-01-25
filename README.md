@@ -37,15 +37,16 @@ To be able to run **My Stack** on your local machine please make sure that you h
 
 1. Clone the repository by running `git clone https://github.com/jarmee/my-stack.git`
 2. Open the root folder of this project and run `npm install`
+3. Next you should generate required docker images (db, auth): `npm run docker:required`
 
 #### Starting the API
 
-3. After all dependencies were installed execute `docker-compose up`. This will startup the database (PostgreSQL).
-4. Now you are ready to start the api. Run `nx serve api` and you are good to go. To see if everything is up and running open your browser and navigate to `http://localhost:3333/api/stacks` or run `curl http://localhost:3333/api/stacks`. You should see the following output `[]`;
+4. After all dependencies were installed, and images generated, execute `docker-compose up -d my-stack-db my-stack-auth`. This will start the database (_PostgreSQL_) and a local _Keycloak_ instance.
+5. Now you are ready to start the api. Run `nx serve api` and you are good to go.
 
 #### Starting the Client
 
-5. To Start the client SPA carry out the following command `nx serve client`. The SPA should be reachable under `http://localhost:4200`. You can login into My Stack by using the subsequent credentials:
+6. To Start the client SPA carry out the following command `nx serve client`. The SPA should be reachable under `http://localhost:4200`. You can login into My Stack by using the following credentials:
 
 - User: `simple-user`
 - Password: `password`
